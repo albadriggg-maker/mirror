@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>مرآة الإنجاز</title>
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--lav:#e9dffb;--vio:#7c4dbd;--deep:#41256f;--pink:#f7bdd6;--rose:#e58bb4;--beige:#f8f0e4;--white:#fff;--gold:#e6c98f;--ink:#3a2a55}
+*{box-sizing:border-box;margin:0}
+html{font-size:17px;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{font-family:"Segoe UI","Noto Naskh Arabic","Geeza Pro",Tahoma,Arial,sans-serif;color:var(--ink);min-height:100vh;
+ background:radial-gradient(circle at 15% 10%,#fbe3ee 0,transparent 40%),radial-gradient(circle at 85% 90%,#d9c8f5 0,transparent 45%),linear-gradient(160deg,var(--beige),var(--lav));
+ background-attachment:fixed;overflow-x:hidden}
+button{font:inherit;cursor:pointer;border:0;border-radius:999px;padding:.7em 1.4em;font-weight:700;transition:transform .15s,box-shadow .15s}
+button:hover{transform:translateY(-2px)}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+.primary{background:linear-gradient(135deg,var(--vio),var(--rose));color:#fff;box-shadow:0 8px 20px #7c4dbd44}
+.soft{background:#fff;color:var(--deep);box-shadow:0 4px 12px #7c4dbd22}
+.danger{background:#fde5ec;color:#b3234f}
+.tlink{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:12px;z-index:5;background:#ffffffaa;color:var(--deep);font-size:.8rem;padding:.5em 1em}
+.snd{left:auto;right:12px}
+.star{position:fixed;pointer-events:none;color:#fff;opacity:.7;animation:tw 4s ease-in-out infinite;z-index:0}
+@keyframes tw{50%{opacity:.15;transform:scale(.6) rotate(25deg)}}
+main{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:28px 16px 60px;display:flex;flex-direction:column;align-items:center}
+h1.logo{font-size:clamp(2rem,8vw,3rem);color:var(--deep);text-align:center;letter-spacing:.02em;background:linear-gradient(90deg,#41256f,#e58bb4,#7c4dbd,#e6c98f,#41256f);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shine 6s linear infinite}@keyframes shine{to{background-position:-300% 0}}
+.sub{color:var(--vio);margin:.3em 0 1.2em;text-align:center}
+/* المرآة */
+.frame{width:min(92vw,400px);padding:14px;border-radius:999px 999px 36px 36px;background:linear-gradient(135deg,#fff3d6,var(--gold) 30%,var(--pink) 60%,var(--vio));box-shadow:0 20px 50px #41256f33,inset 0 0 12px #fff}
+.frame{animation:aura 4s ease-in-out infinite}
+@keyframes aura{50%{box-shadow:0 20px 70px #e58bb477,0 0 60px 10px #c9a8ff88,inset 0 0 12px #fff}}
+.sp{position:absolute;bottom:-20px;color:#d9b3ff;font-style:normal;opacity:0;animation:rise linear infinite;pointer-events:none}
+@keyframes rise{10%{opacity:.9}90%{opacity:.6}to{transform:translateY(-480px) rotate(180deg);opacity:0}}
+.trail{position:fixed;z-index:30;pointer-events:none;color:#e58bb4;font-style:normal;font-size:16px;transform:translate(-50%,-50%);animation:tr .8s forwards}
+@keyframes tr{to{opacity:0;transform:translate(-50%,-120%) scale(.3)}}
+.burst{position:absolute;left:50%;top:48%;width:20px;height:20px;margin:-10px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 30px 10px #e58bb4aa,inset 0 0 20px #c9a8ff;animation:burst 1.4s ease-out forwards;z-index:4;pointer-events:none}
+@keyframes burst{to{transform:scale(28);opacity:0}}
+#fog{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:grab}
+.mist>*:not(canvas){position:relative;z-index:1;pointer-events:none}.mist>button{pointer-events:auto}
+.glass{position:relative;border-radius:999px 999px 26px 26px;overflow:hidden;min-height:440px;padding:70px 22px 26px;text-align:center;
+ background:linear-gradient(160deg,#fff 0,#f6eefe 45%,#fbe6f0 100%)}
+.glass::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,#ffffffcc 48%,transparent 60%);transform:translateX(-120%);animation:sheen 5s infinite;pointer-events:none}
+@keyframes sheen{to{transform:translateX(120%)}}
+.big-ico{font-size:3.4rem;display:block;animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+.glass p.hint{margin:.6em 0 1em;line-height:1.8}
+select{width:100%;font:inherit;padding:.75em 1em;border:2px solid var(--lav);border-radius:16px;background:#fff;color:var(--ink);margin-bottom:.9em;text-align:center}
+input,textarea{width:100%;font:inherit;padding:.75em 1em;border:2px solid var(--lav);border-radius:16px;background:#fff;color:var(--ink);text-align:right}
+input:focus,textarea:focus{border-color:var(--vio)}
+.glass input{text-align:center;font-size:1.1rem;margin-bottom:.9em}
+.err{color:#b3234f;min-height:1.6em;font-size:.9rem;margin-top:.7em;line-height:1.6}
+.shake{animation:shake .45s}
+@keyframes shake{20%,60%{transform:translateX(8px)}40%,80%{transform:translateX(-8px)}}
+/* النتيجة */
+#result{width:100%;display:flex;flex-direction:column;align-items:center}
+.res .glass{padding-top:78px;min-height:0}
+.mist{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1em;
+ transition:opacity 1.2s,transform 1.2s,visibility 1.2s}
+.mist.gone{opacity:0;transform:scale(1.25);visibility:hidden}
+.mist .big-ico{font-size:4rem}
+.hello{font-size:1.25rem;color:var(--deep);font-weight:700}
+.exam{color:var(--vio);font-size:.95rem;margin-top:.2em}
+.ring{position:relative;width:170px;height:170px;margin:1em auto .4em}
+.ring svg{transform:rotate(-90deg)}
+.ring .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:2.4rem;font-weight:800;color:var(--deep)}
+.ring .num small{font-size:.9rem;color:var(--vio);font-weight:600}
+.score{font-size:1.05rem;font-weight:700}
+.tier{display:inline-block;margin:.6em 0;padding:.3em 1.1em;border-radius:999px;background:linear-gradient(135deg,var(--pink),var(--lav));color:var(--deep);font-weight:800}
+.msg{line-height:1.9;margin:.4em 0 1em}
+.tiles{display:grid;gap:10px;text-align:right}
+.tile{background:#ffffffcc;border-radius:18px;padding:12px 14px;line-height:1.7;border:1px solid var(--lav)}
+.tile b{display:block;color:var(--vio);font-size:.9rem}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s}
+.reveal.on{opacity:1;transform:none}
+.acts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+.fx.up{top:auto;bottom:-40px;opacity:.85;animation-name:rise2;animation-timing-function:ease-in-out}
+@keyframes rise2{25%{transform:translateX(18px)}50%{transform:translateX(-14px)}to{transform:translate(10px,-115vh);opacity:0}}
+.fx{position:fixed;top:-30px;z-index:20;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg);opacity:.8}}
+/* المعلمة */
+.panel{width:100%;background:#ffffffcc;border-radius:26px;padding:20px;margin-top:16px;box-shadow:0 10px 30px #7c4dbd22}
+.panel h2{color:var(--deep);font-size:1.15rem;margin-bottom:.8em}
+.grid{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+.grid .full{grid-column:1/-1}
+label{display:block;font-size:.85rem;color:var(--vio);margin-bottom:.25em;font-weight:700}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.item{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:16px;background:#fff;margin-top:8px;border:1px solid var(--lav)}
+.item .n{flex:1;font-weight:700}.item .s{color:var(--vio);font-weight:800}
+.item button{padding:.4em .9em;font-size:.8rem}
+.empty{text-align:center;color:var(--vio);padding:14px}
+.toast{position:fixed;bottom:calc(22px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--deep);color:#fff;padding:.7em 1.4em;border-radius:999px;z-index:50;opacity:0;pointer-events:none;transition:opacity .3s}
+.toast.on{opacity:1}
+#modal{position:fixed;inset:0;background:#2a1a4acc;z-index:40;display:flex;align-items:center;justify-content:center;padding:14px;overflow:auto}
+#modal[hidden]{display:none}
+.mbox{max-width:420px;width:100%;text-align:center}
+#cardImg{width:100%;border-radius:20px;box-shadow:0 20px 50px #0006;background:#fff}
+[hidden]{display:none!important}
+@media(max-width:520px){.grid{grid-template-columns:1fr}html{font-size:16px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{body *{visibility:hidden}#cardImg{visibility:visible;position:fixed;inset:0;margin:auto;max-width:100%;max-height:100vh;width:auto;box-shadow:none}}
+</style>
+</head>
+<body>
+<button class="tlink snd" id="sndBtn" aria-label="تشغيل أو إيقاف الصوت">🔊</button>
+<button class="tlink" id="toTeacher" hidden>⚙️ واجهة المعلمة</button>
+
+<!-- واجهة الطالبة -->
+<main id="studentView">
+  <h1 class="logo">✨ مرآة الإنجاز ✨</h1>
+  <p class="sub">قفي أمام المرآة واكتشفي إنجازكِ</p>
+
+  <div id="searchBox" class="frame"><div class="glass">
+    <span class="big-ico">🪞</span>
+    <p class="hint">اكتبي اسمكِ كما سجّلته معلمتكِ، وستكشف المرآة نتيجتكِ أنتِ فقط.</p>
+    <select id="clsSel" hidden aria-label="اختيار المعلمة"></select>
+    <input id="nameIn" type="text" placeholder="اسمكِ الكامل" autocomplete="off" aria-label="اسم الطالبة">
+    <button class="primary" id="goBtn">انظري في المرآة 🔮</button>
+    <div class="err" id="err" role="alert"></div>
+  </div></div>
+
+  <div id="result" class="res" hidden>
+    <div class="frame"><div class="glass">
+      <div class="mist" id="mist">
+        <canvas id="fog"></canvas>
+        <span class="big-ico">🔮</span>
+        <div class="hello" id="mistHello"></div>
+        <p style="font-weight:700;color:var(--deep);padding:0 24px;line-height:1.7">امسحي المرآة بإصبعكِ لتظهر نتيجتكِ ✨</p>
+        <button class="primary" id="touchBtn">أو المسي المرآة</button>
+      </div>
+      <div class="reveal" id="r1"><div class="hello" id="hello"></div><div class="exam" id="examName"></div></div>
+      <div class="ring reveal" id="r2">
+        <svg width="170" height="170" viewBox="0 0 170 170"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c4dbd"/><stop offset="1" stop-color="#e58bb4"/></linearGradient></defs>
+        <circle cx="85" cy="85" r="72" fill="none" stroke="#efe5fb" stroke-width="14"/>
+        <circle id="arc" cx="85" cy="85" r="72" fill="none" stroke="url(#g)" stroke-width="14" stroke-linecap="round" stroke-dasharray="452.4" stroke-dashoffset="452.4" style="transition:stroke-dashoffset 2s ease-out"/></svg>
+        <div class="num"><span id="pct">0%</span><small>نسبة الإنجاز</small></div>
+      </div>
+      <div class="reveal" id="r3" style="text-align:center"><div class="score" id="scoreTxt"></div><div class="tier" id="tier"></div><p class="msg" id="msg"></p></div>
+      <div class="tiles reveal" id="r4">
+        <div class="tile"><b>🌟 نقطة قوتكِ</b><span id="strength"></span></div>
+        <div class="tile"><b>🪜 خطوتكِ القادمة</b><span id="tip"></span></div>
+      </div>
+    </div></div>
+    <div class="acts reveal" id="r5">
+      <button class="primary" id="cardBtn">🎀 بطاقة الإنجاز</button>
+      <button class="soft" id="againBtn">إخفاء النتيجة</button>
+    </div>
+  </div>
+</main>
+
+<!-- واجهة المعلمة -->
+<main id="teacherView" hidden>
+  <h1 class="logo">لوحة المعلمة</h1>
+  <p class="sub">كل تعديل يُنشر مباشرة ويظهر لكل من يفتح الرابط على أي جهاز</p>
+  <div id="tLock" class="panel"><h2>🔐 مساحتي الخاصة</h2>
+    <p style="line-height:1.8;margin-bottom:10px">اكتبي رمز مساحتكِ. صفوفكِ وطالباتكِ مشفّرة بهذا الرمز، ولا تظهر لأي معلمة أخرى لديها الرابط.</p>
+    <label for="tPw">رمز المساحة</label><input id="tPw" type="password" autocomplete="off" placeholder="6 أحرف على الأقل">
+    <div class="row"><button class="primary" id="tOpen">فتح مساحتي</button><button class="soft" id="tCreate">إنشاء مساحة جديدة</button></div>
+    <div class="err" id="tErr"></div>
+    <p style="font-size:.8rem;color:var(--vio);line-height:1.7">إن نسيتِ الرمز فلا يمكن استرجاع البيانات، فاحتفظي به في مكان آمن.</p></div>
+  <div id="tMain" hidden>
+  <div class="panel">
+    <h2>🏫 صفوفي</h2>
+    <p class="empty" id="clsEmpty" hidden>لا يوجد صف بعد. أنشئي صفكِ الأول من الأسفل 🌸</p>
+    <div id="clsPick"><label for="tSel">اختاري الصف</label><select id="tSel" style="text-align:right"></select>
+      <label for="clsName">اسم الصف (يظهر للطالبات)</label><input id="clsName">
+      <div class="row"><button class="primary" id="clsSave">حفظ الاسم</button><button class="danger" id="clsDel">حذف الصف</button></div></div>
+    <div style="margin-top:14px"><label for="clsNewName">إنشاء صف جديد</label><input id="clsNewName" placeholder="مثال: أستاذة منى - الصف الثالث">
+      <div class="row"><button class="soft" id="clsNew">+ إنشاء الصف</button></div></div>
+  </div>
+  <div class="panel">
+    <h2>🔑 أمان المساحة</h2>
+    <label for="tNewPw">رمز جديد للمساحة</label><input id="tNewPw" type="password" autocomplete="off" placeholder="6 أحرف على الأقل">
+    <div class="row"><button class="soft" id="tChange">تغيير الرمز</button><button class="soft" id="tLock2">🔒 قفل المساحة</button></div>
+  </div>
+  <div id="classPanels">
+  <div class="panel">
+    <h2>📝 بيانات الاختبار</h2>
+    <div class="grid">
+      <div><label for="exName">اسم الاختبار</label><input id="exName"></div>
+      <div><label for="exMax">الدرجة النهائية</label><input id="exMax" type="number" min="1" step="any"></div>
+    </div>
+    <div class="row"><button class="primary" id="saveExam">حفظ الاختبار</button></div>
+  </div>
+  <div class="panel">
+    <h2 id="formTitle">➕ إضافة طالبة</h2>
+    <div class="grid">
+      <div><label for="stName">اسم الطالبة</label><input id="stName"></div>
+      <div><label for="stScore">الدرجة</label><input id="stScore" type="number" min="0" step="any"></div>
+      <div class="full"><label for="stStrength">نقطة قوة (اختياري)</label><textarea id="stStrength" rows="2"></textarea></div>
+      <div class="full"><label for="stTip">خطوة مقترحة / ملاحظة (اختياري)</label><textarea id="stTip" rows="2"></textarea></div>
+    </div>
+    <div class="row"><button class="primary" id="saveSt">إضافة</button><button class="soft" id="cancelEdit" hidden>إلغاء التعديل</button></div>
+  </div>
+  <div class="panel">
+    <h2>👩‍🎓 الطالبات (<span id="cnt">0</span>)</h2>
+    <div id="list"></div>
+    <div class="row"><button class="soft" id="resetDemo">استعادة البيانات التجريبية</button><button class="danger" id="clearAll">حذف كل الطالبات</button></div>
+  </div>
+  </div></div>
+  <div class="row"><button class="primary" id="toStudent">← العودة لواجهة الطالبة</button></div>
+</main>
+
+<div id="modal" hidden><div class="mbox">
+  <img id="cardImg" alt="بطاقة الإنجاز">
+  <p style="color:#fff;font-size:.85rem;margin-top:8px">للطباعة: اضغطي «PDF للطباعة» ثم افتحي الملف واطبعيه</p>
+  <div class="acts"><button class="primary" id="dlBtn">💾 حفظ كصورة</button><button class="soft" id="prBtn">🖨️ PDF للطباعة</button><button class="soft" id="closeBtn">إغلاق</button></div>
+</div></div>
+<div id="ask" hidden style="position:fixed;inset:0;background:#2a1a4acc;z-index:60;display:flex;align-items:center;justify-content:center;padding:16px"><div class="panel" style="max-width:380px;text-align:center"><p id="askTxt" style="line-height:1.8;margin-bottom:14px;font-weight:700"></p><div class="acts" style="margin-top:0"><button class="danger" id="askYes">نعم، متابعة</button><button class="soft" id="askNo">إلغاء</button></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script id="seed" type="application/json">{"spaces":[{"tid":"3393f927a778afa6ed9d343ae0c051f9","iv":"9943aef411867d6a8064a6a2","ct":"a31ab1fdb4ff84b7ae67f6761a446f8a3949b576fce466b490183ea1b52206a99f7e11791913e3fa90ffb6af4d3d91c171709aacf96ea0cf510d08577c9693f4ec95ea6278ddeb9745ac0fd0e397b56fa829a9d2bce8c53e10a3109d72e5eb53dbf2abd08349785a41916f3ba15118352d9d25dbf56a809596b75ead866445e00928874118611e70260c9c7f02721df78169e21284998e97149f4bfcec2e16e556b0403d266ee20cd0551a1b9a1391e2f7c1470b82319b8d5c577a40a6aa6fa55d417b81400912990fa779c7130fb406312730c891d9d01a3f7df5768cde17b3648a911cd28e43e7ea77280e18bd6ddd7f64813e4e1c493a1d7e5772b66e2d3b7195159f1bd69ee59b3cd471060fa34a2d45d2ef3e7acf7595802ca30cf0e78a07bed4463e56b64f1d170f7314586fe825443ffc3b24db73faee58f7c955fc784c2ade597cf5aacf924e30d8e55a9d6eeb9579efa5df27cf5df879ab452823a2e21e5757d9ec259eaebf259f81c529e6801e867b53c1142a17c1e4bf1ad29d08104667a531d7d00f0ffa820f91063e77beb0780a4af1ed9fa10341b4cd04939667972b935d975f6ae7385639a2d0379d4c91d74dc153570f1a4b9bcedc44b57ae2ab08128758603d3de77b928787b3e52fa6659539a7fe38f9"}],"classes":[{"id":"c1","label":"صف أستاذة جهاد","recs":[{"k":"e189e046c40b3006b9e3c8abbbe8c842","iv":"79df58947773b1d4cb29b949","ct":"34b90aa239537614175047456244717ccde9a46b15d9717167823105652740c4032a247021274a18b42ba1382929891352e8f0fac0186579808de80ef6dd536556997f4622da829dbc32d5beebad78fcdf455e32057b9c30969fabefc38ff4a98deef002d843f5f0ea045e6816164e7ab55deea598759585c7ae0afb3fda6fb7701aa7337f7d588aa9df92"},{"k":"e052b0beb72cba96c7f750a898f9ff27","iv":"5b9b0b7578493fe5986f4848","ct":"3449fd2fdc1516fc816364052f2bc3c949efec3b18c316da8acc50a3f22d9d6b7ed8fd064f98fa009b02ecdeb3da3c16c359fff5439d9ad2a69a0538938ae0eac0578c092dfba104bd99a2caec7b841c5d0a4faa5ec1136207a5c036c2496d0d383c0c523342e387b252278d18e1db77054747b3a9e385377c3f3efe69c1bfc4be7e5366a51701f8260ef8"},{"k":"ebc6b449376762e1d0fa799e6affd351","iv":"37bc85033d5549116df1a175","ct":"b1e2914666e6204ea933577a93c7036cbcb925869ace6c54efb804e9c4dc50f231ffd185fcac2b362e6b7f98accdef18939dcb4e136f74370a1f1d0277fa70614b460d3d250686fefc97dfe720652bc5243837bd6c64a38d8a20d051765b1090b9fdd225e9cd6485610088a756b057efaf8069a516e2f82f65417b70b7686a2aea23cbcab3bd0218d8888266a5"},{"k":"da7d40f8d6a92cfd65c15779044f4bf5","iv":"59676f676fd9946223b98373","ct":"dda1b80d50e57d228c031a181686fb9dfecfec0a07d1da0f237e92fa22e7e93f122bbdefc61f6053a046f5465712d2d2d6bd3013cb0356f6089326c52a40c026e2994333293a927422c94480e20d333a358bd9882fc1bb7b2d6d05769a64f01034c1c50bba237cd77fe8a6d77af1f673c1857cfe89fb37632827acb688a42cad3b940647251aba"},{"k":"16fdbe2857e93fb2c761d2ab1261abd7","iv":"9c8ddb2fd334458e4007d3aa","ct":"331fd0c6b14f903868cd9c36e69ee26de6d42dfc14f09dbdc3b31afd14b59fd7e7aeee6a7c5b88636de4852d6a3ec80b6f27d328b58363028ba2f1dce15eb98a059c2b095e6af65ffa5c4f8792551fa2d31d590380082b9d69b6531485f7a8251cc0b1504180612d1e328bf559bdc2670c48d236bc5ee2520af178ab38eb76c736f0e2299a24ccd9e5da"}]}]}</script>
+<script id="src" type="text/plain"><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>مرآة الإنجاز</title>
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--lav:#e9dffb;--vio:#7c4dbd;--deep:#41256f;--pink:#f7bdd6;--rose:#e58bb4;--beige:#f8f0e4;--white:#fff;--gold:#e6c98f;--ink:#3a2a55}
+*{box-sizing:border-box;margin:0}
+html{font-size:17px;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{font-family:"Segoe UI","Noto Naskh Arabic","Geeza Pro",Tahoma,Arial,sans-serif;color:var(--ink);min-height:100vh;
+ background:radial-gradient(circle at 15% 10%,#fbe3ee 0,transparent 40%),radial-gradient(circle at 85% 90%,#d9c8f5 0,transparent 45%),linear-gradient(160deg,var(--beige),var(--lav));
+ background-attachment:fixed;overflow-x:hidden}
+button{font:inherit;cursor:pointer;border:0;border-radius:999px;padding:.7em 1.4em;font-weight:700;transition:transform .15s,box-shadow .15s}
+button:hover{transform:translateY(-2px)}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+.primary{background:linear-gradient(135deg,var(--vio),var(--rose));color:#fff;box-shadow:0 8px 20px #7c4dbd44}
+.soft{background:#fff;color:var(--deep);box-shadow:0 4px 12px #7c4dbd22}
+.danger{background:#fde5ec;color:#b3234f}
+.tlink{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:12px;z-index:5;background:#ffffffaa;color:var(--deep);font-size:.8rem;padding:.5em 1em}
+.snd{left:auto;right:12px}
+.star{position:fixed;pointer-events:none;color:#fff;opacity:.7;animation:tw 4s ease-in-out infinite;z-index:0}
+@keyframes tw{50%{opacity:.15;transform:scale(.6) rotate(25deg)}}
+main{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:28px 16px 60px;display:flex;flex-direction:column;align-items:center}
+h1.logo{font-size:clamp(2rem,8vw,3rem);color:var(--deep);text-align:center;letter-spacing:.02em;background:linear-gradient(90deg,#41256f,#e58bb4,#7c4dbd,#e6c98f,#41256f);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shine 6s linear infinite}@keyframes shine{to{background-position:-300% 0}}
+.sub{color:var(--vio);margin:.3em 0 1.2em;text-align:center}
+/* المرآة */
+.frame{width:min(92vw,400px);padding:14px;border-radius:999px 999px 36px 36px;background:linear-gradient(135deg,#fff3d6,var(--gold) 30%,var(--pink) 60%,var(--vio));box-shadow:0 20px 50px #41256f33,inset 0 0 12px #fff}
+.frame{animation:aura 4s ease-in-out infinite}
+@keyframes aura{50%{box-shadow:0 20px 70px #e58bb477,0 0 60px 10px #c9a8ff88,inset 0 0 12px #fff}}
+.sp{position:absolute;bottom:-20px;color:#d9b3ff;font-style:normal;opacity:0;animation:rise linear infinite;pointer-events:none}
+@keyframes rise{10%{opacity:.9}90%{opacity:.6}to{transform:translateY(-480px) rotate(180deg);opacity:0}}
+.trail{position:fixed;z-index:30;pointer-events:none;color:#e58bb4;font-style:normal;font-size:16px;transform:translate(-50%,-50%);animation:tr .8s forwards}
+@keyframes tr{to{opacity:0;transform:translate(-50%,-120%) scale(.3)}}
+.burst{position:absolute;left:50%;top:48%;width:20px;height:20px;margin:-10px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 30px 10px #e58bb4aa,inset 0 0 20px #c9a8ff;animation:burst 1.4s ease-out forwards;z-index:4;pointer-events:none}
+@keyframes burst{to{transform:scale(28);opacity:0}}
+#fog{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:grab}
+.mist>*:not(canvas){position:relative;z-index:1;pointer-events:none}.mist>button{pointer-events:auto}
+.glass{position:relative;border-radius:999px 999px 26px 26px;overflow:hidden;min-height:440px;padding:70px 22px 26px;text-align:center;
+ background:linear-gradient(160deg,#fff 0,#f6eefe 45%,#fbe6f0 100%)}
+.glass::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,#ffffffcc 48%,transparent 60%);transform:translateX(-120%);animation:sheen 5s infinite;pointer-events:none}
+@keyframes sheen{to{transform:translateX(120%)}}
+.big-ico{font-size:3.4rem;display:block;animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+.glass p.hint{margin:.6em 0 1em;line-height:1.8}
+select{width:100%;font:inherit;padding:.75em 1em;border:2px solid var(--lav);border-radius:16px;background:#fff;color:var(--ink);margin-bottom:.9em;text-align:center}
+input,textarea{width:100%;font:inherit;padding:.75em 1em;border:2px solid var(--lav);border-radius:16px;background:#fff;color:var(--ink);text-align:right}
+input:focus,textarea:focus{border-color:var(--vio)}
+.glass input{text-align:center;font-size:1.1rem;margin-bottom:.9em}
+.err{color:#b3234f;min-height:1.6em;font-size:.9rem;margin-top:.7em;line-height:1.6}
+.shake{animation:shake .45s}
+@keyframes shake{20%,60%{transform:translateX(8px)}40%,80%{transform:translateX(-8px)}}
+/* النتيجة */
+#result{width:100%;display:flex;flex-direction:column;align-items:center}
+.res .glass{padding-top:78px;min-height:0}
+.mist{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1em;
+ transition:opacity 1.2s,transform 1.2s,visibility 1.2s}
+.mist.gone{opacity:0;transform:scale(1.25);visibility:hidden}
+.mist .big-ico{font-size:4rem}
+.hello{font-size:1.25rem;color:var(--deep);font-weight:700}
+.exam{color:var(--vio);font-size:.95rem;margin-top:.2em}
+.ring{position:relative;width:170px;height:170px;margin:1em auto .4em}
+.ring svg{transform:rotate(-90deg)}
+.ring .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:2.4rem;font-weight:800;color:var(--deep)}
+.ring .num small{font-size:.9rem;color:var(--vio);font-weight:600}
+.score{font-size:1.05rem;font-weight:700}
+.tier{display:inline-block;margin:.6em 0;padding:.3em 1.1em;border-radius:999px;background:linear-gradient(135deg,var(--pink),var(--lav));color:var(--deep);font-weight:800}
+.msg{line-height:1.9;margin:.4em 0 1em}
+.tiles{display:grid;gap:10px;text-align:right}
+.tile{background:#ffffffcc;border-radius:18px;padding:12px 14px;line-height:1.7;border:1px solid var(--lav)}
+.tile b{display:block;color:var(--vio);font-size:.9rem}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s}
+.reveal.on{opacity:1;transform:none}
+.acts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+.fx.up{top:auto;bottom:-40px;opacity:.85;animation-name:rise2;animation-timing-function:ease-in-out}
+@keyframes rise2{25%{transform:translateX(18px)}50%{transform:translateX(-14px)}to{transform:translate(10px,-115vh);opacity:0}}
+.fx{position:fixed;top:-30px;z-index:20;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg);opacity:.8}}
+/* المعلمة */
+.panel{width:100%;background:#ffffffcc;border-radius:26px;padding:20px;margin-top:16px;box-shadow:0 10px 30px #7c4dbd22}
+.panel h2{color:var(--deep);font-size:1.15rem;margin-bottom:.8em}
+.grid{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+.grid .full{grid-column:1/-1}
+label{display:block;font-size:.85rem;color:var(--vio);margin-bottom:.25em;font-weight:700}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.item{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:16px;background:#fff;margin-top:8px;border:1px solid var(--lav)}
+.item .n{flex:1;font-weight:700}.item .s{color:var(--vio);font-weight:800}
+.item button{padding:.4em .9em;font-size:.8rem}
+.empty{text-align:center;color:var(--vio);padding:14px}
+.toast{position:fixed;bottom:calc(22px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--deep);color:#fff;padding:.7em 1.4em;border-radius:999px;z-index:50;opacity:0;pointer-events:none;transition:opacity .3s}
+.toast.on{opacity:1}
+#modal{position:fixed;inset:0;background:#2a1a4acc;z-index:40;display:flex;align-items:center;justify-content:center;padding:14px;overflow:auto}
+#modal[hidden]{display:none}
+.mbox{max-width:420px;width:100%;text-align:center}
+#cardImg{width:100%;border-radius:20px;box-shadow:0 20px 50px #0006;background:#fff}
+[hidden]{display:none!important}
+@media(max-width:520px){.grid{grid-template-columns:1fr}html{font-size:16px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{body *{visibility:hidden}#cardImg{visibility:visible;position:fixed;inset:0;margin:auto;max-width:100%;max-height:100vh;width:auto;box-shadow:none}}
+</style>
+</head>
+<body>
+<button class="tlink snd" id="sndBtn" aria-label="تشغيل أو إيقاف الصوت">🔊</button>
+<button class="tlink" id="toTeacher" hidden>⚙️ واجهة المعلمة</button>
+
+<!-- واجهة الطالبة -->
+<main id="studentView">
+  <h1 class="logo">✨ مرآة الإنجاز ✨</h1>
+  <p class="sub">قفي أمام المرآة واكتشفي إنجازكِ</p>
+
+  <div id="searchBox" class="frame"><div class="glass">
+    <span class="big-ico">🪞</span>
+    <p class="hint">اكتبي اسمكِ كما سجّلته معلمتكِ، وستكشف المرآة نتيجتكِ أنتِ فقط.</p>
+    <select id="clsSel" hidden aria-label="اختيار المعلمة"></select>
+    <input id="nameIn" type="text" placeholder="اسمكِ الكامل" autocomplete="off" aria-label="اسم الطالبة">
+    <button class="primary" id="goBtn">انظري في المرآة 🔮</button>
+    <div class="err" id="err" role="alert"></div>
+  </div></div>
+
+  <div id="result" class="res" hidden>
+    <div class="frame"><div class="glass">
+      <div class="mist" id="mist">
+        <canvas id="fog"></canvas>
+        <span class="big-ico">🔮</span>
+        <div class="hello" id="mistHello"></div>
+        <p style="font-weight:700;color:var(--deep);padding:0 24px;line-height:1.7">امسحي المرآة بإصبعكِ لتظهر نتيجتكِ ✨</p>
+        <button class="primary" id="touchBtn">أو المسي المرآة</button>
+      </div>
+      <div class="reveal" id="r1"><div class="hello" id="hello"></div><div class="exam" id="examName"></div></div>
+      <div class="ring reveal" id="r2">
+        <svg width="170" height="170" viewBox="0 0 170 170"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c4dbd"/><stop offset="1" stop-color="#e58bb4"/></linearGradient></defs>
+        <circle cx="85" cy="85" r="72" fill="none" stroke="#efe5fb" stroke-width="14"/>
+        <circle id="arc" cx="85" cy="85" r="72" fill="none" stroke="url(#g)" stroke-width="14" stroke-linecap="round" stroke-dasharray="452.4" stroke-dashoffset="452.4" style="transition:stroke-dashoffset 2s ease-out"/></svg>
+        <div class="num"><span id="pct">0%</span><small>نسبة الإنجاز</small></div>
+      </div>
+      <div class="reveal" id="r3" style="text-align:center"><div class="score" id="scoreTxt"></div><div class="tier" id="tier"></div><p class="msg" id="msg"></p></div>
+      <div class="tiles reveal" id="r4">
+        <div class="tile"><b>🌟 نقطة قوتكِ</b><span id="strength"></span></div>
+        <div class="tile"><b>🪜 خطوتكِ القادمة</b><span id="tip"></span></div>
+      </div>
+    </div></div>
+    <div class="acts reveal" id="r5">
+      <button class="primary" id="cardBtn">🎀 بطاقة الإنجاز</button>
+      <button class="soft" id="againBtn">إخفاء النتيجة</button>
+    </div>
+  </div>
+</main>
+
+<!-- واجهة المعلمة -->
+<main id="teacherView" hidden>
+  <h1 class="logo">لوحة المعلمة</h1>
+  <p class="sub">كل تعديل يُنشر مباشرة ويظهر لكل من يفتح الرابط على أي جهاز</p>
+  <div id="tLock" class="panel"><h2>🔐 مساحتي الخاصة</h2>
+    <p style="line-height:1.8;margin-bottom:10px">اكتبي رمز مساحتكِ. صفوفكِ وطالباتكِ مشفّرة بهذا الرمز، ولا تظهر لأي معلمة أخرى لديها الرابط.</p>
+    <label for="tPw">رمز المساحة</label><input id="tPw" type="password" autocomplete="off" placeholder="6 أحرف على الأقل">
+    <div class="row"><button class="primary" id="tOpen">فتح مساحتي</button><button class="soft" id="tCreate">إنشاء مساحة جديدة</button></div>
+    <div class="err" id="tErr"></div>
+    <p style="font-size:.8rem;color:var(--vio);line-height:1.7">إن نسيتِ الرمز فلا يمكن استرجاع البيانات، فاحتفظي به في مكان آمن.</p></div>
+  <div id="tMain" hidden>
+  <div class="panel">
+    <h2>🏫 صفوفي</h2>
+    <p class="empty" id="clsEmpty" hidden>لا يوجد صف بعد. أنشئي صفكِ الأول من الأسفل 🌸</p>
+    <div id="clsPick"><label for="tSel">اختاري الصف</label><select id="tSel" style="text-align:right"></select>
+      <label for="clsName">اسم الصف (يظهر للطالبات)</label><input id="clsName">
+      <div class="row"><button class="primary" id="clsSave">حفظ الاسم</button><button class="danger" id="clsDel">حذف الصف</button></div></div>
+    <div style="margin-top:14px"><label for="clsNewName">إنشاء صف جديد</label><input id="clsNewName" placeholder="مثال: أستاذة منى - الصف الثالث">
+      <div class="row"><button class="soft" id="clsNew">+ إنشاء الصف</button></div></div>
+  </div>
+  <div class="panel">
+    <h2>🔑 أمان المساحة</h2>
+    <label for="tNewPw">رمز جديد للمساحة</label><input id="tNewPw" type="password" autocomplete="off" placeholder="6 أحرف على الأقل">
+    <div class="row"><button class="soft" id="tChange">تغيير الرمز</button><button class="soft" id="tLock2">🔒 قفل المساحة</button></div>
+  </div>
+  <div id="classPanels">
+  <div class="panel">
+    <h2>📝 بيانات الاختبار</h2>
+    <div class="grid">
+      <div><label for="exName">اسم الاختبار</label><input id="exName"></div>
+      <div><label for="exMax">الدرجة النهائية</label><input id="exMax" type="number" min="1" step="any"></div>
+    </div>
+    <div class="row"><button class="primary" id="saveExam">حفظ الاختبار</button></div>
+  </div>
+  <div class="panel">
+    <h2 id="formTitle">➕ إضافة طالبة</h2>
+    <div class="grid">
+      <div><label for="stName">اسم الطالبة</label><input id="stName"></div>
+      <div><label for="stScore">الدرجة</label><input id="stScore" type="number" min="0" step="any"></div>
+      <div class="full"><label for="stStrength">نقطة قوة (اختياري)</label><textarea id="stStrength" rows="2"></textarea></div>
+      <div class="full"><label for="stTip">خطوة مقترحة / ملاحظة (اختياري)</label><textarea id="stTip" rows="2"></textarea></div>
+    </div>
+    <div class="row"><button class="primary" id="saveSt">إضافة</button><button class="soft" id="cancelEdit" hidden>إلغاء التعديل</button></div>
+  </div>
+  <div class="panel">
+    <h2>👩‍🎓 الطالبات (<span id="cnt">0</span>)</h2>
+    <div id="list"></div>
+    <div class="row"><button class="soft" id="resetDemo">استعادة البيانات التجريبية</button><button class="danger" id="clearAll">حذف كل الطالبات</button></div>
+  </div>
+  </div></div>
+  <div class="row"><button class="primary" id="toStudent">← العودة لواجهة الطالبة</button></div>
+</main>
+
+<div id="modal" hidden><div class="mbox">
+  <img id="cardImg" alt="بطاقة الإنجاز">
+  <p style="color:#fff;font-size:.85rem;margin-top:8px">للطباعة: اضغطي «PDF للطباعة» ثم افتحي الملف واطبعيه</p>
+  <div class="acts"><button class="primary" id="dlBtn">💾 حفظ كصورة</button><button class="soft" id="prBtn">🖨️ PDF للطباعة</button><button class="soft" id="closeBtn">إغلاق</button></div>
+</div></div>
+<div id="ask" hidden style="position:fixed;inset:0;background:#2a1a4acc;z-index:60;display:flex;align-items:center;justify-content:center;padding:16px"><div class="panel" style="max-width:380px;text-align:center"><p id="askTxt" style="line-height:1.8;margin-bottom:14px;font-weight:700"></p><div class="acts" style="margin-top:0"><button class="danger" id="askYes">نعم، متابعة</button><button class="soft" id="askNo">إلغاء</button></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script id="seed" type="application/json">@@DATA@@<\/script>
+<script id="src" type="text/plain">@@SRC@@<\/script>
+<script>
+(function(){
+"use strict";
+var pub=null,canEdit=false;
+var SEED={exam:{name:"اختبار الوحدة الأولى",max:20},students:[
+ {id:1,name:"سارة أحمد",score:19,strength:"تنظيمكِ الرائع وطريقتكِ الذكية في حل المسائل",tip:"جرّبي أسئلة التحدي لتصقلي موهبتكِ أكثر."},
+ {id:2,name:"ليان محمد",score:16.5,strength:"",tip:""},
+ {id:3,name:"نورة خالد",score:13,strength:"دقتكِ في مراجعة إجاباتكِ",tip:""},
+ {id:4,name:"مريم علي",score:10,strength:"",tip:""},
+ {id:5,name:"جود سالم",score:7,strength:"مشاركتكِ الجميلة وحماسكِ في الصف",tip:"خصّصي ١٥ دقيقة يوميًا للمراجعة، وسنراجع الدرس معًا."}
+]};
+function clone(o){return JSON.parse(JSON.stringify(o))}
+function load(){var d=null;try{d=JSON.parse(document.getElementById("seed").textContent)}catch(e){}
+  return (d&&Array.isArray(d.spaces)&&Array.isArray(d.classes))?d:{spaces:[],classes:[]}}
+var doc=load(),space=null,tk=null,ownIds=[],data=null,tId=null,busy=false;
+var TE=new TextEncoder(),TD=new TextDecoder(),IT=100000,IS=30000;
+function hex(b){return Array.from(new Uint8Array(b)).map(function(x){return ("0"+x.toString(16)).slice(-2)}).join("")}
+function unhex(h){var a=new Uint8Array(h.length/2);for(var i=0;i<a.length;i++)a[i]=parseInt(h.substr(i*2,2),16);return a}
+function pb(pass,salt,iter,bits){return crypto.subtle.importKey("raw",TE.encode(pass),"PBKDF2",false,["deriveBits"]).then(function(k){return crypto.subtle.deriveBits({name:"PBKDF2",hash:"SHA-256",salt:TE.encode(salt),iterations:iter},k,bits)})}
+function aesKey(bits){return crypto.subtle.importKey("raw",bits,"AES-GCM",false,["encrypt","decrypt"])}
+function enc(bits,obj){var iv=crypto.getRandomValues(new Uint8Array(12));return aesKey(bits).then(function(k){return crypto.subtle.encrypt({name:"AES-GCM",iv:iv},k,TE.encode(JSON.stringify(obj)))}).then(function(ct){return {iv:hex(iv),ct:hex(ct)}})}
+function dec(bits,o){return aesKey(bits).then(function(k){return crypto.subtle.decrypt({name:"AES-GCM",iv:unhex(o.iv)},k,unhex(o.ct))}).then(function(b){return JSON.parse(TD.decode(b))})}
+function tKeys(pw){return Promise.all([pb(pw,"mirror-tid",50000,128),pb(pw,"mirror-key",IT,256)]).then(function(r){return {tid:hex(r[0]),key:r[1]}})}
+function sKeys(cid,name){var n=norm(name);return Promise.all([pb(n,cid+"|k",IS,128),pb(n,cid+"|e",IS,256)]).then(function(r){return {k:hex(r[0]),key:r[1]}})}
+function pubClass(c){return Promise.all(c.students.map(function(s){return sKeys(c.id,s.name).then(function(d){return enc(d.key,{name:s.name,score:s.score,strength:s.strength||"",tip:s.tip||"",exam:c.exam}).then(function(e){return {k:d.k,iv:e.iv,ct:e.ct}})})})).then(function(recs){return {id:c.id,label:c.teacher,recs:recs}})}
+var LT="<",SC="script",TK1="@@"+"SRC@@",TK2="@@"+"DATA@@";
+function build(){
+  var cls=space.classes;
+  return Promise.all(cls.map(pubClass)).then(function(pubs){
+    return enc(tk.key,space).then(function(e){
+      var ids=ownIds.concat(cls.map(function(c){return c.id}));
+      doc.classes=doc.classes.filter(function(c){return ids.indexOf(c.id)<0}).concat(pubs);
+      doc.spaces=doc.spaces.filter(function(x){return x.tid!==tk.tid&&x.tid!==tk.oldTid}).concat([{tid:tk.tid,iv:e.iv,ct:e.ct}])
+    })})
+}
+function save(){
+  if(!pub||!tk||!space){toast("تعذّر النشر: لا تملكين صلاحية التعديل على هذه الصفحة");return}
+  toast("جارٍ التشفير والنشر…");
+  build().then(function(){
+    var T=document.getElementById("src").textContent.split(LT+"\\/"+SC).join(LT+"/"+SC);
+    var esc=T.split(LT+"/"+SC).join(LT+"\\/"+SC);
+    var js=JSON.stringify(doc).split("<").join("\\u003c");
+    var html=T.split(TK2).join(js).split(TK1).join(esc);
+    try{location.hash=tId?"teacher-"+tId:"teacher"}catch(e){}
+    return pub.publish(html)
+  }).catch(function(e){toast("تعذّر النشر، حاولي مرة أخرى")})
+}
+var $=function(id){return document.getElementById(id)};
+function toast(t){var e=$("toast");e.textContent=t;e.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove("on")},2400)}
+function ask(msg,cb){$("askTxt").textContent=msg;$("ask").hidden=false;$("askYes").onclick=function(){$("ask").hidden=true;cb()};$("askNo").onclick=function(){$("ask").hidden=true}}
+function norm(s){return String(s||"").replace(/[\u064B-\u065F\u0670\u0640]/g,"").replace(/[أإآٱ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").replace(/\s+/g," ").trim().toLowerCase()}
+function find(q){var n=norm(q);if(!n)return null;
+  var ex=data.students.filter(function(s){return norm(s.name)===n});if(ex.length)return ex[0];
+  if(n.indexOf(" ")>0){var m=data.students.filter(function(s){return norm(s.name).indexOf(n)===0});if(m.length===1)return m[0]}
+  return null}
+function num(v){return Math.round(v*100)/100}
+
+/* المستويات */
+var TIERS=[
+ {min:90,ico:"🌟",title:"نجمة متألقة",msg:"المرآة تلمع احتفالًا بكِ! اجتهادكِ ظهر بوضوح، وكل درجة هنا تحكي قصة عمل حقيقي. أنتِ مصدر فخر، فواصلي التألق.",s:"التزامكِ واجتهادكِ المستمر",t:"اختاري تحديًا جديدًا يناسب مستواكِ، وشاركي زميلاتكِ طريقتكِ في الاستذكار."},
+ {min:80,ico:"💜",title:"مبدعة مثابرة",msg:"ما أجمل ما تراه المرآة! نتيجتكِ تدل على جهد صادق وفهم جيد، وأنتِ على بعد خطوة صغيرة من القمة.",s:"فهمكِ الجيد وثباتكِ في المستوى",t:"راجعي الأسئلة التي فقدتِ فيها درجات، وحوّليها إلى نقاط قوة جديدة."},
+ {min:65,ico:"🌸",title:"في الطريق الصحيح",msg:"المرآة ترى تقدمًا جميلًا! أنتِ تبنين أساسًا قويًا، ومع قليل من التركيز سترتفع نتيجتكِ أكثر في المرة القادمة.",s:"قدرتكِ على التقدم خطوة بعد خطوة",t:"خصّصي وقتًا قصيرًا كل يوم لمراجعة الدرس، وابدئي بالجزء الأصعب."},
+ {min:50,ico:"🌱",title:"بداية واعدة",msg:"كل نبتة كبيرة بدأت صغيرة. المرآة ترى فيكِ قدرة حقيقية على النمو، وبقليل من الاستمرار ستزهر نتيجتكِ.",s:"رغبتكِ في التعلم وإكمال الطريق",t:"اطلبي من معلمتكِ شرح النقاط الصعبة، وجرّبي حل تمارين قصيرة كل يوم."},
+ {min:0,ico:"🦋",title:"فرصة جديدة للتألق",msg:"الدرجة محطة في الرحلة وليست حكمًا عليكِ. المرآة ترى فيكِ قوة وشجاعة، ومعًا سنجد الخطوة التي تقودكِ للأمام.",s:"شجاعتكِ في مواجهة النتيجة والمحاولة من جديد",t:"تعالي نجلس معًا لنراجع الدرس بهدوء ونضع خطة صغيرة تناسبكِ."}
+];
+function tierOf(p){for(var i=0;i<TIERS.length;i++)if(p>=TIERS[i].min)return TIERS[i];return TIERS[4]}
+
+/* خلفية النجوم */
+(function(){var ch=["✦","✧","✿","❀","♡"];for(var i=0;i<16;i++){var e=document.createElement("span");e.className="star";e.textContent=ch[i%ch.length];
+ e.style.cssText="top:"+Math.random()*95+"%;left:"+Math.random()*95+"%;font-size:"+(12+Math.random()*18)+"px;animation-delay:"+(Math.random()*4)+"s";document.body.appendChild(e)}})();
+
+/* ===== المؤثرات الصوتية ===== */
+var AC=null,soundOn=true;
+try{soundOn=localStorage.getItem("mirror_snd")!=="0"}catch(e){}
+function ac(){if(!AC){try{AC=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}if(AC&&AC.state==="suspended")AC.resume();return AC}
+function tone(f,t0,d,type,vol,slide){var a=ac();if(!a||!soundOn)return;var o=a.createOscillator(),g=a.createGain(),t=a.currentTime+t0;
+  o.type=type||"sine";o.frequency.setValueAtTime(f,t);if(slide)o.frequency.exponentialRampToValueAtTime(slide,t+d);
+  g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(vol||.12,t+.03);g.gain.exponentialRampToValueAtTime(.0001,t+d);
+  o.connect(g);g.connect(a.destination);o.start(t);o.stop(t+d+.05)}
+var N={C5:523.25,E5:659.25,G5:783.99,C6:1046.5,E6:1318.5,G6:1568};
+var SND={
+ pop:function(){tone(660,0,.12,"sine",.1,990)},
+ found:function(){[N.G5,N.C6,N.E6].forEach(function(f,i){tone(f,i*.09,.5,"sine",.1)})},
+ err:function(){tone(300,0,.28,"triangle",.12,190)},
+ magic:function(){for(var i=0;i<10;i++)tone(900+Math.random()*1800,i*.07,.35,"sine",.06);tone(200,0,1.3,"sine",.07,900)},
+ fill:function(){tone(300,0,2,"triangle",.045,1000)},
+ cheer:function(p){if(p<50){tone(392,0,1.8,"sine",.06);tone(523.25,.35,2,"sine",.05);tone(659.25,.7,2.4,"sine",.045);return}var ch=p>=80?[N.C5,N.E5,N.G5,N.C6,N.E6,N.G6]:p>=50?[N.C5,N.E5,N.G5,N.C6]:[N.G5,N.C6,N.E6];
+  ch.forEach(function(f,i){tone(f,i*.12,.7,"sine",.1);tone(f*2,i*.12,.5,"triangle",.03)});
+  if(p>=80)[N.C6,N.E6,N.G6].forEach(function(f){tone(f,.9,1.2,"sine",.08)})},
+ card:function(){tone(1046,0,.3,"sine",.1);tone(1568,.12,.5,"sine",.1)}
+};
+function play(n,a){if(soundOn)try{SND[n](a)}catch(e){}}
+
+/* ===== سحر المرآة ===== */
+var fog=null,touched=false,lastW=0,lastT=0;
+function fogInit(){var c=$("fog"),m=$("mist"),w=m.clientWidth,h=m.clientHeight;c.width=w;c.height=h;var x=c.getContext("2d");
+  var g=x.createLinearGradient(0,0,w,h);g.addColorStop(0,"#d3bff3");g.addColorStop(.5,"#ece3fb");g.addColorStop(1,"#f4c6dc");x.globalCompositeOperation="source-over";x.fillStyle=g;x.fillRect(0,0,w,h);
+  for(var i=0;i<70;i++){x.fillStyle="rgba(255,255,255,"+(Math.random()*.25)+")";x.beginPath();x.arc(Math.random()*w,Math.random()*h,10+Math.random()*30,0,7);x.fill()}
+  x.globalCompositeOperation="destination-out";fog={x:x,w:w,h:h,n:0,lx:null,ly:null}}
+function burst(){var b=document.createElement("i");b.className="burst";$("mist").parentNode.appendChild(b);setTimeout(function(){b.remove()},1600)}
+$("fog").addEventListener("pointermove",function(e){if(!fog||touched)return;
+  var r=this.getBoundingClientRect(),px=(e.clientX-r.left)*fog.w/r.width,py=(e.clientY-r.top)*fog.h/r.height,x=fog.x,g=x.createRadialGradient(px,py,2,px,py,44);
+  g.addColorStop(0,"rgba(0,0,0,1)");g.addColorStop(1,"rgba(0,0,0,0)");x.fillStyle=g;x.beginPath();x.arc(px,py,44,0,7);x.fill();
+  if(fog.lx!==null)fog.n+=Math.hypot(px-fog.lx,py-fog.ly);fog.lx=px;fog.ly=py;
+  var n=Date.now();if(n-lastW>130){lastW=n;tone(1200+Math.random()*1200,0,.25,"sine",.035)}
+  if(fog.n>(fog.w+fog.h)*1.8)touch()});
+$("fog").addEventListener("pointerleave",function(){if(fog){fog.lx=null}});
+document.querySelectorAll(".glass").forEach(function(g){for(var i=0;i<12;i++){var e=document.createElement("i");e.className="sp";e.textContent="✦";
+  e.style.cssText="left:"+(Math.random()*94)+"%;animation-duration:"+(5+Math.random()*6)+"s;animation-delay:-"+(Math.random()*8)+"s;font-size:"+(8+Math.random()*12)+"px";g.appendChild(e)}});
+document.addEventListener("pointermove",function(e){var n=Date.now();if(n-lastT<70||$("studentView").hidden)return;lastT=n;
+  var t=document.createElement("i");t.className="trail";t.textContent=["✦","✧","·"][n%3];t.style.left=e.clientX+"px";t.style.top=e.clientY+"px";document.body.appendChild(t);setTimeout(function(){t.remove()},800)});
+
+/* ===== الطالبة ===== */
+var cur=null, curP=0, timers=[];
+function notFound(){play("err");$("err").textContent="لم تجد المرآة هذا الاسم. اكتبي اسمكِ الكامل كما سجّلته معلمتكِ.";var b=$("searchBox");b.classList.remove("shake");void b.offsetWidth;b.classList.add("shake")}
+function search(){
+  ac();if(busy)return;
+  var L=doc.classes.filter(function(c){return c.recs.length}),cid=$("clsSel").value||(L.length===1?L[0].id:"");
+  if(!cid){play("err");$("err").textContent=L.length?"اختاري معلمتكِ أولًا.":"لم تُضَف النتائج بعد.";return}
+  var q=$("nameIn").value;if(!norm(q)){notFound();return}
+  var cl=L.filter(function(c){return c.id===cid})[0];busy=true;$("err").textContent="";
+  sKeys(cid,q).then(function(d){var r=cl.recs.filter(function(x){return x.k===d.k})[0];return r?dec(d.key,r):null})
+  .then(function(rec){busy=false;if(!rec){notFound();return}cur=rec;play("found");showResult()})
+  .catch(function(){busy=false;notFound()})
+}
+function showResult(){
+  var s=cur,max=Number(cur.exam.max)||1;curP=Math.max(0,Math.min(100,Math.round(s.score/max*100)));
+  var t=tierOf(curP),first=s.name.split(" ")[0];
+  $("searchBox").hidden=true;$("result").hidden=false;
+  $("mistHello").textContent="مرحبًا يا "+first+" 💫";
+  $("hello").textContent="أهلًا بكِ يا "+first;
+  $("examName").textContent=cur.exam.name;
+  $("scoreTxt").textContent=num(s.score)+" من "+num(max);
+  $("tier").textContent=t.ico+" "+t.title;
+  $("msg").textContent=t.msg;
+  $("strength").textContent=s.strength&&s.strength.trim()?s.strength:t.s;
+  $("tip").textContent=s.tip&&s.tip.trim()?s.tip:t.t;
+  $("mist").classList.remove("gone");
+  ["r1","r2","r3","r4","r5"].forEach(function(i){$(i).classList.remove("on")});
+  $("arc").style.transition="none";$("arc").setAttribute("stroke-dashoffset","452.4");$("pct").textContent="0%";
+  touched=false;fogInit();window.scrollTo(0,0)
+}
+function touch(){
+  if(touched)return;touched=true;play("magic");burst();timers.push(setTimeout(function(){play("fill")},900));timers.push(setTimeout(function(){play("cheer",curP)},2900));
+  $("mist").classList.add("gone");
+  var steps=["r1","r2","r3","r4","r5"];
+  steps.forEach(function(id,i){timers.push(setTimeout(function(){$(id).classList.add("on")},500+i*650))});
+  timers.push(setTimeout(function(){
+    var arc=$("arc");arc.style.transition="stroke-dashoffset 2s ease-out";arc.setAttribute("stroke-dashoffset",String(452.4*(1-curP/100)));
+    var st=performance.now();(function tick(n){var k=Math.min(1,(n-st)/2000);$("pct").textContent=Math.round(curP*(1-Math.pow(1-k,3)))+"%";if(k<1)requestAnimationFrame(tick)})(st);
+    confetti(curP)},900))
+}
+function gentle(){var ch=["🦋","✨","💜","🌸","🕊️"];
+  for(var i=0;i<14;i++){var e=document.createElement("span");e.className="fx up";e.textContent=ch[i%ch.length];
+   e.style.left=(Math.random()*92)+"vw";e.style.fontSize=(18+Math.random()*14)+"px";e.style.animationDuration=(7+Math.random()*4)+"s";e.style.animationDelay=(Math.random()*3)+"s";
+   document.body.appendChild(e);(function(x){setTimeout(function(){x.remove()},12000)})(e)}}
+function confetti(p){if(p<50){gentle();return}
+  var ch=p>=50?["✨","🌸","💜","⭐","🎀","🦋"]:["✨","💜","🌸","🦋"],n=p>=80?44:p>=50?30:20;
+  for(var i=0;i<n;i++){var e=document.createElement("span");e.className="fx";e.textContent=ch[i%ch.length];
+   e.style.left=Math.random()*98+"vw";e.style.fontSize=(16+Math.random()*18)+"px";e.style.animationDuration=(2.5+Math.random()*2.5)+"s";e.style.animationDelay=(Math.random()*.8)+"s";
+   document.body.appendChild(e);(function(x){setTimeout(function(){x.remove()},6500)})(e)}}
+function hideResult(){timers.forEach(clearTimeout);timers=[];cur=null;$("modal").hidden=true;$("result").hidden=true;$("searchBox").hidden=false;$("nameIn").value="";$("nameIn").focus()}
+
+/* ===== بطاقة الإنجاز ===== */
+function wrap(ctx,text,maxW){var w=text.split(" "),lines=[],l="";w.forEach(function(x){var t=l?l+" "+x:x;if(ctx.measureText(t).width>maxW&&l){lines.push(l);l=x}else l=t});if(l)lines.push(l);return lines}
+function drawCard(fmt){
+  var s=cur,t=tierOf(curP),max=Number(cur.exam.max)||1,W=900,H=1200,c=document.createElement("canvas");c.width=W;c.height=H;var x=c.getContext("2d");
+  var bg=x.createLinearGradient(0,0,W,H);bg.addColorStop(0,"#f8f0e4");bg.addColorStop(.5,"#e9dffb");bg.addColorStop(1,"#f7bdd6");x.fillStyle=bg;x.fillRect(0,0,W,H);
+  var X=60,Y=60,w=780,h=1080,r=w/2;
+  x.beginPath();x.moveTo(X,Y+r);x.arc(X+r,Y+r,r,Math.PI,0);x.lineTo(X+w,Y+h-44);x.arcTo(X+w,Y+h,X+w-44,Y+h,44);x.lineTo(X+44,Y+h);x.arcTo(X,Y+h,X,Y+h-44,44);x.closePath();
+  x.fillStyle="#fff";x.fill();
+  var fg=x.createLinearGradient(0,0,W,H);fg.addColorStop(0,"#e6c98f");fg.addColorStop(.5,"#f7bdd6");fg.addColorStop(1,"#7c4dbd");x.lineWidth=16;x.strokeStyle=fg;x.stroke();
+  x.direction="rtl";x.textAlign="center";var F='"Segoe UI","Noto Naskh Arabic",Tahoma,Arial,sans-serif';
+  x.fillStyle="#7c4dbd";x.font="700 40px "+F;x.fillText("✨ مرآة الإنجاز ✨",W/2,300);
+  x.fillStyle="#41256f";x.font="800 70px "+F;x.fillText(s.name,W/2,420);
+  x.fillStyle="#7c4dbd";x.font="600 36px "+F;x.fillText(cur.exam.name,W/2,485);
+  var pg=x.createLinearGradient(300,560,600,740);pg.addColorStop(0,"#7c4dbd");pg.addColorStop(1,"#e58bb4");
+  x.fillStyle=pg;x.font="800 170px "+F;x.fillText(curP+"%",W/2,700);
+  x.fillStyle="#41256f";x.font="700 44px "+F;x.fillText("الدرجة: "+num(s.score)+" من "+num(max),W/2,780);
+  x.fillStyle="#e58bb4";x.font="800 52px "+F;x.fillText(t.ico+" "+t.title,W/2,865);
+  x.fillStyle="#3a2a55";x.font="500 33px "+F;var L=wrap(x,t.msg,600);L.slice(0,5).forEach(function(l,i){x.fillText(l,W/2,935+i*50)});
+  x.fillStyle="#7c4dbd";x.font="700 28px "+F;x.fillText("✦ بطاقة إنجاز خاصة بكِ ✦",W/2,1095);
+  return c.toDataURL(fmt||"image/png",.93)
+}
+function openCard(){play("card");var u=drawCard();$("cardImg").src=u;$("modal").hidden=false}
+function b64(u){var p=u.split(","),bin=atob(p[1]),n=bin.length,a=new Uint8Array(n);for(var i=0;i<n;i++)a[i]=bin.charCodeAt(i);return a}
+function saveFile(name,data,ok){
+  var fail="تعذّر الحفظ، اضغطي مطولًا على صورة البطاقة لحفظها";
+  if(!(window.claude&&claude.use)){toast(fail);return}
+  claude.use("downloads").then(function(d){
+    if(!d){toast(fail);return}
+    return d.save({filename:name,data:data}).then(function(){toast(ok||"تم الحفظ ✓")},function(e){if(!e||e.code!=="declined")toast(fail)})
+  }).catch(function(){toast(fail)})
+}
+function dl(){saveFile("achievement-card.png",b64($("cardImg").src),"تم حفظ الصورة ✓")}
+function makePdf(jpg){
+  var enc=new TextEncoder(),parts=[],off=[],len=0;
+  function add(x){var u=typeof x==="string"?enc.encode(x):x;parts.push(u);len+=u.length}
+  function obj(n,body){off[n]=len;add(n+" 0 obj\n"+body+"\nendobj\n")}
+  add("%PDF-1.4\n");
+  obj(1,"<< /Type /Catalog /Pages 2 0 R >>");
+  obj(2,"<< /Type /Pages /Kids [3 0 R] /Count 1 >>");
+  obj(3,"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>");
+  off[4]=len;add("4 0 obj\n<< /Type /XObject /Subtype /Image /Width 900 /Height 1200 /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length "+jpg.length+" >>\nstream\n");add(jpg);add("\nendstream\nendobj\n");
+  var cs="q 520 0 0 693 37 75 cm /Im0 Do Q";
+  obj(5,"<< /Length "+cs.length+" >>\nstream\n"+cs+"\nendstream");
+  var x=len;add("xref\n0 6\n0000000000 65535 f \n");
+  for(var i=1;i<=5;i++)add(("0000000000"+off[i]).slice(-10)+" 00000 n \n");
+  add("trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n"+x+"\n%%EOF");
+  var out=new Uint8Array(len),p=0;parts.forEach(function(u){out.set(u,p);p+=u.length});return out
+}
+function printPdf(){if(!cur)return;saveFile("achievement-card.pdf",makePdf(b64(drawCard("image/jpeg"))),"تم حفظ ملف PDF ✓ افتحيه واطبعيه من جهازكِ")}
+
+/* ===== المعلمة ===== */
+var editId=null;
+function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+function classUI(){
+  var L=space?space.classes:[],sel=$("tSel");
+  if(!tId||!L.some(function(c){return c.id===tId}))tId=L.length?L[0].id:null;
+  sel.innerHTML=L.map(function(c){return '<option value="'+c.id+'">'+esc(c.teacher)+'</option>'}).join("");
+  if(tId)sel.value=tId;
+  data=tId?L.filter(function(c){return c.id===tId})[0]:null;
+  $("classPanels").hidden=!data;$("clsPick").hidden=!data;$("clsEmpty").hidden=!!data;$("clsName").value=data?data.teacher:""
+}
+function initCls(){var L=doc.classes.filter(function(c){return c.recs.length}),s=$("clsSel");
+  s.innerHTML='<option value="">اختاري معلمتكِ…</option>'+L.map(function(c){return '<option value="'+c.id+'">'+esc(c.label)+'</option>'}).join("");
+  s.hidden=L.length<2;if(L.length===1)s.value=L[0].id}
+function renderT(){classUI();if(data)renderCls()}
+function unlock(pw,create){
+  var err=$("tErr");
+  if(pw.length<6){err.textContent="اكتبي رمزًا من 6 أحرف على الأقل";return}
+  err.textContent="جارٍ الفتح…";
+  tKeys(pw).then(function(k){
+    var ent=doc.spaces.filter(function(x){return x.tid===k.tid})[0];
+    if(ent&&create){err.textContent="هذا الرمز مستخدم، اختاري رمزًا آخر.";return null}
+    if(ent)return dec(k.key,ent).then(function(sp){return {k:k,sp:sp}});
+    if(!create){err.textContent="لا توجد مساحة بهذا الرمز. تأكدي منه أو أنشئي مساحة جديدة.";return null}
+    return {k:k,sp:{classes:[]}}
+  }).then(function(r){if(!r)return;tk=r.k;space=r.sp;ownIds=space.classes.map(function(c){return c.id});
+    try{sessionStorage.setItem("mirror_pw",pw)}catch(e){}
+    err.textContent="";$("tPw").value="";$("tLock").hidden=true;$("tMain").hidden=false;renderT()
+  }).catch(function(){err.textContent="تعذّر فتح المساحة. تأكدي من الرمز."})
+}
+function lockT(){try{sessionStorage.removeItem("mirror_pw")}catch(e){}tk=null;space=null;data=null;$("tMain").hidden=true;$("tLock").hidden=false;$("tErr").textContent=""}
+function renderCls(){
+  $("exName").value=data.exam.name;$("exMax").value=data.exam.max;$("cnt").textContent=data.students.length;
+  var L=$("list");
+  if(!data.students.length){L.innerHTML='<div class="empty">لا توجد طالبات بعد. أضيفي أول طالبة من النموذج أعلاه 🌸</div>';return}
+  L.innerHTML=data.students.map(function(s){return '<div class="item"><span class="n">'+esc(s.name)+'</span><span class="s">'+num(s.score)+' / '+num(data.exam.max)+'</span><button class="soft" data-e="'+s.id+'">تعديل</button><button class="danger" data-d="'+s.id+'">حذف</button></div>'}).join("")
+}
+function resetForm(){editId=null;$("stName").value="";$("stScore").value="";$("stStrength").value="";$("stTip").value="";$("saveSt").textContent="إضافة";$("formTitle").textContent="➕ إضافة طالبة";$("cancelEdit").hidden=true}
+function saveExam(){
+  var n=$("exName").value.trim(),m=parseFloat($("exMax").value);
+  if(!n||!(m>0)){toast("اكتبي اسم الاختبار ودرجة نهائية أكبر من صفر");return}
+  var over=data.students.filter(function(s){return s.score>m});
+  if(over.length){toast("هناك درجات أعلى من الدرجة النهائية الجديدة، عدّليها أولًا");return}
+  data.exam={name:n,max:m};save();renderT();toast("تم حفظ بيانات الاختبار ✓")
+}
+function saveStudent(){
+  var n=$("stName").value.trim().replace(/\s+/g," "),sc=parseFloat($("stScore").value),max=Number(data.exam.max);
+  if(!n){toast("اكتبي اسم الطالبة");return}
+  if(isNaN(sc)||sc<0||sc>max){toast("الدرجة يجب أن تكون بين 0 و "+num(max));return}
+  var dup=data.students.some(function(s){return norm(s.name)===norm(n)&&s.id!==editId});
+  if(dup){toast("هذا الاسم موجود مسبقًا، أضيفي ما يميّزه (مثل اسم الأب)");return}
+  var rec={name:n,score:sc,strength:$("stStrength").value.trim(),tip:$("stTip").value.trim()};
+  if(editId!==null){var s=data.students.filter(function(z){return z.id===editId})[0];if(s)Object.assign(s,rec);toast("تم تحديث بيانات الطالبة ✓")}
+  else{var id=data.students.reduce(function(a,z){return Math.max(a,z.id)},0)+1;rec.id=id;data.students.push(rec);toast("تمت إضافة الطالبة ✓")}
+  save();resetForm();renderT()
+}
+function showT(on){$("teacherView").hidden=!on;$("studentView").hidden=on;$("toTeacher").hidden=on||!canEdit;if(on){renderT()}else{hideResult()}window.scrollTo(0,0)}
+
+/* الأحداث */
+$("goBtn").onclick=search;
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("button");if(!b)return;ac();if(!{goBtn:1,touchBtn:1,cardBtn:1,sndBtn:1}[b.id])play("pop")});
+$("sndBtn").textContent=soundOn?"🔊":"🔇";
+$("sndBtn").onclick=function(){soundOn=!soundOn;try{localStorage.setItem("mirror_snd",soundOn?"1":"0")}catch(e){}$("sndBtn").textContent=soundOn?"🔊":"🔇";if(soundOn){ac();play("pop")}};
+$("nameIn").addEventListener("keydown",function(e){if(e.key==="Enter")search()});
+$("touchBtn").onclick=touch;$("againBtn").onclick=hideResult;$("cardBtn").onclick=openCard;
+$("dlBtn").onclick=dl;$("prBtn").onclick=printPdf;$("closeBtn").onclick=function(){$("modal").hidden=true};
+$("modal").addEventListener("click",function(e){if(e.target===$("modal"))$("modal").hidden=true});
+$("toTeacher").onclick=function(){showT(true)};$("toStudent").onclick=function(){showT(false)};
+$("saveExam").onclick=saveExam;$("saveSt").onclick=saveStudent;$("cancelEdit").onclick=resetForm;
+$("list").addEventListener("click",function(e){
+  var ed=e.target.getAttribute("data-e"),de=e.target.getAttribute("data-d");
+  if(ed){var s=data.students.filter(function(z){return z.id===+ed})[0];if(!s)return;editId=s.id;$("stName").value=s.name;$("stScore").value=s.score;$("stStrength").value=s.strength||"";$("stTip").value=s.tip||"";$("saveSt").textContent="حفظ التعديل";$("formTitle").textContent="✏️ تعديل بيانات الطالبة";$("cancelEdit").hidden=false;$("stName").scrollIntoView({behavior:"smooth",block:"center"})}
+  if(de){var t=data.students.filter(function(z){return z.id===+de})[0];if(t)ask("حذف "+t.name+"؟",function(){data.students=data.students.filter(function(z){return z.id!==+de});if(editId===+de)resetForm();save();renderT();toast("تم الحذف")})}
+});
+$("resetDemo").onclick=function(){ask("سيتم استبدال كل البيانات الحالية بالبيانات التجريبية. متابعة؟",function(){data.exam=clone(SEED.exam);data.students=clone(SEED.students);save();resetForm();renderT();toast("تمت استعادة البيانات التجريبية")})};
+$("clearAll").onclick=function(){ask("حذف جميع الطالبات؟ لا يمكن التراجع.",function(){data.students=[];save();resetForm();renderT();toast("تم حذف الطالبات")})};
+$("tSel").onchange=function(){tId=this.value;resetForm();renderT()};
+$("clsSave").onclick=function(){var n=$("clsName").value.trim();if(!data||!n){toast("اكتبي اسم الصف");return}data.teacher=n;save()};
+$("clsNew").onclick=function(){if(!space)return;var n=$("clsNewName").value.trim()||"صف جديد",c={id:"c"+Date.now(),teacher:n,exam:{name:"الاختبار",max:20},students:[]};space.classes.push(c);tId=c.id;save()};
+$("clsDel").onclick=function(){if(!data)return;var id=data.id;ask("حذف الصف «"+data.teacher+"» بكل طالباته؟ لا يمكن التراجع.",function(){space.classes=space.classes.filter(function(c){return c.id!==id});tId=null;save()})};
+$("tOpen").onclick=function(){unlock($("tPw").value,false)};
+$("tCreate").onclick=function(){unlock($("tPw").value,true)};
+$("tPw").addEventListener("keydown",function(e){if(e.key==="Enter")unlock($("tPw").value,false)});
+$("tLock2").onclick=function(){lockT();toast("تم قفل المساحة")};
+$("tChange").onclick=function(){var p=$("tNewPw").value;if(!tk||p.length<6){toast("اكتبي رمزًا جديدًا من 6 أحرف على الأقل");return}
+  tKeys(p).then(function(k){if(doc.spaces.some(function(x){return x.tid===k.tid&&x.tid!==tk.tid})){toast("هذا الرمز مستخدم، اختاري غيره");return}
+    k.oldTid=tk.tid;tk=k;try{sessionStorage.setItem("mirror_pw",p)}catch(e){}save()})};
+initCls();renderT();
+if(window.claude&&claude.use){Promise.all([claude.use("artifact"),claude.use("user")]).then(function(r){
+  pub=r[0];var u=r[1];canEdit=!!(pub&&u&&u.canEdit());
+  if(canEdit){$("toTeacher").hidden=false;
+    if(location.hash.indexOf("#teacher")===0){var m=/^#teacher-(c\d+)$/.exec(location.hash);if(m)tId=m[1];showT(true);
+      var sp=null;try{sp=sessionStorage.getItem("mirror_pw")}catch(e){}if(sp)unlock(sp,false)}}
+}).catch(function(){})}
+})();
+<\/script>
+</body>
+</html>
+</script>
+<script>
+(function(){
+"use strict";
+var pub=null,canEdit=false;
+var SEED={exam:{name:"اختبار الوحدة الأولى",max:20},students:[
+ {id:1,name:"سارة أحمد",score:19,strength:"تنظيمكِ الرائع وطريقتكِ الذكية في حل المسائل",tip:"جرّبي أسئلة التحدي لتصقلي موهبتكِ أكثر."},
+ {id:2,name:"ليان محمد",score:16.5,strength:"",tip:""},
+ {id:3,name:"نورة خالد",score:13,strength:"دقتكِ في مراجعة إجاباتكِ",tip:""},
+ {id:4,name:"مريم علي",score:10,strength:"",tip:""},
+ {id:5,name:"جود سالم",score:7,strength:"مشاركتكِ الجميلة وحماسكِ في الصف",tip:"خصّصي ١٥ دقيقة يوميًا للمراجعة، وسنراجع الدرس معًا."}
+]};
+function clone(o){return JSON.parse(JSON.stringify(o))}
+function load(){var d=null;try{d=JSON.parse(document.getElementById("seed").textContent)}catch(e){}
+  return (d&&Array.isArray(d.spaces)&&Array.isArray(d.classes))?d:{spaces:[],classes:[]}}
+var doc=load(),space=null,tk=null,ownIds=[],data=null,tId=null,busy=false;
+var TE=new TextEncoder(),TD=new TextDecoder(),IT=100000,IS=30000;
+function hex(b){return Array.from(new Uint8Array(b)).map(function(x){return ("0"+x.toString(16)).slice(-2)}).join("")}
+function unhex(h){var a=new Uint8Array(h.length/2);for(var i=0;i<a.length;i++)a[i]=parseInt(h.substr(i*2,2),16);return a}
+function pb(pass,salt,iter,bits){return crypto.subtle.importKey("raw",TE.encode(pass),"PBKDF2",false,["deriveBits"]).then(function(k){return crypto.subtle.deriveBits({name:"PBKDF2",hash:"SHA-256",salt:TE.encode(salt),iterations:iter},k,bits)})}
+function aesKey(bits){return crypto.subtle.importKey("raw",bits,"AES-GCM",false,["encrypt","decrypt"])}
+function enc(bits,obj){var iv=crypto.getRandomValues(new Uint8Array(12));return aesKey(bits).then(function(k){return crypto.subtle.encrypt({name:"AES-GCM",iv:iv},k,TE.encode(JSON.stringify(obj)))}).then(function(ct){return {iv:hex(iv),ct:hex(ct)}})}
+function dec(bits,o){return aesKey(bits).then(function(k){return crypto.subtle.decrypt({name:"AES-GCM",iv:unhex(o.iv)},k,unhex(o.ct))}).then(function(b){return JSON.parse(TD.decode(b))})}
+function tKeys(pw){return Promise.all([pb(pw,"mirror-tid",50000,128),pb(pw,"mirror-key",IT,256)]).then(function(r){return {tid:hex(r[0]),key:r[1]}})}
+function sKeys(cid,name){var n=norm(name);return Promise.all([pb(n,cid+"|k",IS,128),pb(n,cid+"|e",IS,256)]).then(function(r){return {k:hex(r[0]),key:r[1]}})}
+function pubClass(c){return Promise.all(c.students.map(function(s){return sKeys(c.id,s.name).then(function(d){return enc(d.key,{name:s.name,score:s.score,strength:s.strength||"",tip:s.tip||"",exam:c.exam}).then(function(e){return {k:d.k,iv:e.iv,ct:e.ct}})})})).then(function(recs){return {id:c.id,label:c.teacher,recs:recs}})}
+var LT="<",SC="script",TK1="@@"+"SRC@@",TK2="@@"+"DATA@@";
+function build(){
+  var cls=space.classes;
+  return Promise.all(cls.map(pubClass)).then(function(pubs){
+    return enc(tk.key,space).then(function(e){
+      var ids=ownIds.concat(cls.map(function(c){return c.id}));
+      doc.classes=doc.classes.filter(function(c){return ids.indexOf(c.id)<0}).concat(pubs);
+      doc.spaces=doc.spaces.filter(function(x){return x.tid!==tk.tid&&x.tid!==tk.oldTid}).concat([{tid:tk.tid,iv:e.iv,ct:e.ct}])
+    })})
+}
+function save(){
+  if(!pub||!tk||!space){toast("تعذّر النشر: لا تملكين صلاحية التعديل على هذه الصفحة");return}
+  toast("جارٍ التشفير والنشر…");
+  build().then(function(){
+    var T=document.getElementById("src").textContent.split(LT+"\\/"+SC).join(LT+"/"+SC);
+    var esc=T.split(LT+"/"+SC).join(LT+"\\/"+SC);
+    var js=JSON.stringify(doc).split("<").join("\\u003c");
+    var html=T.split(TK2).join(js).split(TK1).join(esc);
+    try{location.hash=tId?"teacher-"+tId:"teacher"}catch(e){}
+    return pub.publish(html)
+  }).catch(function(e){toast("تعذّر النشر، حاولي مرة أخرى")})
+}
+var $=function(id){return document.getElementById(id)};
+function toast(t){var e=$("toast");e.textContent=t;e.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove("on")},2400)}
+function ask(msg,cb){$("askTxt").textContent=msg;$("ask").hidden=false;$("askYes").onclick=function(){$("ask").hidden=true;cb()};$("askNo").onclick=function(){$("ask").hidden=true}}
+function norm(s){return String(s||"").replace(/[\u064B-\u065F\u0670\u0640]/g,"").replace(/[أإآٱ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").replace(/\s+/g," ").trim().toLowerCase()}
+function find(q){var n=norm(q);if(!n)return null;
+  var ex=data.students.filter(function(s){return norm(s.name)===n});if(ex.length)return ex[0];
+  if(n.indexOf(" ")>0){var m=data.students.filter(function(s){return norm(s.name).indexOf(n)===0});if(m.length===1)return m[0]}
+  return null}
+function num(v){return Math.round(v*100)/100}
+
+/* المستويات */
+var TIERS=[
+ {min:90,ico:"🌟",title:"نجمة متألقة",msg:"المرآة تلمع احتفالًا بكِ! اجتهادكِ ظهر بوضوح، وكل درجة هنا تحكي قصة عمل حقيقي. أنتِ مصدر فخر، فواصلي التألق.",s:"التزامكِ واجتهادكِ المستمر",t:"اختاري تحديًا جديدًا يناسب مستواكِ، وشاركي زميلاتكِ طريقتكِ في الاستذكار."},
+ {min:80,ico:"💜",title:"مبدعة مثابرة",msg:"ما أجمل ما تراه المرآة! نتيجتكِ تدل على جهد صادق وفهم جيد، وأنتِ على بعد خطوة صغيرة من القمة.",s:"فهمكِ الجيد وثباتكِ في المستوى",t:"راجعي الأسئلة التي فقدتِ فيها درجات، وحوّليها إلى نقاط قوة جديدة."},
+ {min:65,ico:"🌸",title:"في الطريق الصحيح",msg:"المرآة ترى تقدمًا جميلًا! أنتِ تبنين أساسًا قويًا، ومع قليل من التركيز سترتفع نتيجتكِ أكثر في المرة القادمة.",s:"قدرتكِ على التقدم خطوة بعد خطوة",t:"خصّصي وقتًا قصيرًا كل يوم لمراجعة الدرس، وابدئي بالجزء الأصعب."},
+ {min:50,ico:"🌱",title:"بداية واعدة",msg:"كل نبتة كبيرة بدأت صغيرة. المرآة ترى فيكِ قدرة حقيقية على النمو، وبقليل من الاستمرار ستزهر نتيجتكِ.",s:"رغبتكِ في التعلم وإكمال الطريق",t:"اطلبي من معلمتكِ شرح النقاط الصعبة، وجرّبي حل تمارين قصيرة كل يوم."},
+ {min:0,ico:"🦋",title:"فرصة جديدة للتألق",msg:"الدرجة محطة في الرحلة وليست حكمًا عليكِ. المرآة ترى فيكِ قوة وشجاعة، ومعًا سنجد الخطوة التي تقودكِ للأمام.",s:"شجاعتكِ في مواجهة النتيجة والمحاولة من جديد",t:"تعالي نجلس معًا لنراجع الدرس بهدوء ونضع خطة صغيرة تناسبكِ."}
+];
+function tierOf(p){for(var i=0;i<TIERS.length;i++)if(p>=TIERS[i].min)return TIERS[i];return TIERS[4]}
+
+/* خلفية النجوم */
+(function(){var ch=["✦","✧","✿","❀","♡"];for(var i=0;i<16;i++){var e=document.createElement("span");e.className="star";e.textContent=ch[i%ch.length];
+ e.style.cssText="top:"+Math.random()*95+"%;left:"+Math.random()*95+"%;font-size:"+(12+Math.random()*18)+"px;animation-delay:"+(Math.random()*4)+"s";document.body.appendChild(e)}})();
+
+/* ===== المؤثرات الصوتية ===== */
+var AC=null,soundOn=true;
+try{soundOn=localStorage.getItem("mirror_snd")!=="0"}catch(e){}
+function ac(){if(!AC){try{AC=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}if(AC&&AC.state==="suspended")AC.resume();return AC}
+function tone(f,t0,d,type,vol,slide){var a=ac();if(!a||!soundOn)return;var o=a.createOscillator(),g=a.createGain(),t=a.currentTime+t0;
+  o.type=type||"sine";o.frequency.setValueAtTime(f,t);if(slide)o.frequency.exponentialRampToValueAtTime(slide,t+d);
+  g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(vol||.12,t+.03);g.gain.exponentialRampToValueAtTime(.0001,t+d);
+  o.connect(g);g.connect(a.destination);o.start(t);o.stop(t+d+.05)}
+var N={C5:523.25,E5:659.25,G5:783.99,C6:1046.5,E6:1318.5,G6:1568};
+var SND={
+ pop:function(){tone(660,0,.12,"sine",.1,990)},
+ found:function(){[N.G5,N.C6,N.E6].forEach(function(f,i){tone(f,i*.09,.5,"sine",.1)})},
+ err:function(){tone(300,0,.28,"triangle",.12,190)},
+ magic:function(){for(var i=0;i<10;i++)tone(900+Math.random()*1800,i*.07,.35,"sine",.06);tone(200,0,1.3,"sine",.07,900)},
+ fill:function(){tone(300,0,2,"triangle",.045,1000)},
+ cheer:function(p){if(p<50){tone(392,0,1.8,"sine",.06);tone(523.25,.35,2,"sine",.05);tone(659.25,.7,2.4,"sine",.045);return}var ch=p>=80?[N.C5,N.E5,N.G5,N.C6,N.E6,N.G6]:p>=50?[N.C5,N.E5,N.G5,N.C6]:[N.G5,N.C6,N.E6];
+  ch.forEach(function(f,i){tone(f,i*.12,.7,"sine",.1);tone(f*2,i*.12,.5,"triangle",.03)});
+  if(p>=80)[N.C6,N.E6,N.G6].forEach(function(f){tone(f,.9,1.2,"sine",.08)})},
+ card:function(){tone(1046,0,.3,"sine",.1);tone(1568,.12,.5,"sine",.1)}
+};
+function play(n,a){if(soundOn)try{SND[n](a)}catch(e){}}
+
+/* ===== سحر المرآة ===== */
+var fog=null,touched=false,lastW=0,lastT=0;
+function fogInit(){var c=$("fog"),m=$("mist"),w=m.clientWidth,h=m.clientHeight;c.width=w;c.height=h;var x=c.getContext("2d");
+  var g=x.createLinearGradient(0,0,w,h);g.addColorStop(0,"#d3bff3");g.addColorStop(.5,"#ece3fb");g.addColorStop(1,"#f4c6dc");x.globalCompositeOperation="source-over";x.fillStyle=g;x.fillRect(0,0,w,h);
+  for(var i=0;i<70;i++){x.fillStyle="rgba(255,255,255,"+(Math.random()*.25)+")";x.beginPath();x.arc(Math.random()*w,Math.random()*h,10+Math.random()*30,0,7);x.fill()}
+  x.globalCompositeOperation="destination-out";fog={x:x,w:w,h:h,n:0,lx:null,ly:null}}
+function burst(){var b=document.createElement("i");b.className="burst";$("mist").parentNode.appendChild(b);setTimeout(function(){b.remove()},1600)}
+$("fog").addEventListener("pointermove",function(e){if(!fog||touched)return;
+  var r=this.getBoundingClientRect(),px=(e.clientX-r.left)*fog.w/r.width,py=(e.clientY-r.top)*fog.h/r.height,x=fog.x,g=x.createRadialGradient(px,py,2,px,py,44);
+  g.addColorStop(0,"rgba(0,0,0,1)");g.addColorStop(1,"rgba(0,0,0,0)");x.fillStyle=g;x.beginPath();x.arc(px,py,44,0,7);x.fill();
+  if(fog.lx!==null)fog.n+=Math.hypot(px-fog.lx,py-fog.ly);fog.lx=px;fog.ly=py;
+  var n=Date.now();if(n-lastW>130){lastW=n;tone(1200+Math.random()*1200,0,.25,"sine",.035)}
+  if(fog.n>(fog.w+fog.h)*1.8)touch()});
+$("fog").addEventListener("pointerleave",function(){if(fog){fog.lx=null}});
+document.querySelectorAll(".glass").forEach(function(g){for(var i=0;i<12;i++){var e=document.createElement("i");e.className="sp";e.textContent="✦";
+  e.style.cssText="left:"+(Math.random()*94)+"%;animation-duration:"+(5+Math.random()*6)+"s;animation-delay:-"+(Math.random()*8)+"s;font-size:"+(8+Math.random()*12)+"px";g.appendChild(e)}});
+document.addEventListener("pointermove",function(e){var n=Date.now();if(n-lastT<70||$("studentView").hidden)return;lastT=n;
+  var t=document.createElement("i");t.className="trail";t.textContent=["✦","✧","·"][n%3];t.style.left=e.clientX+"px";t.style.top=e.clientY+"px";document.body.appendChild(t);setTimeout(function(){t.remove()},800)});
+
+/* ===== الطالبة ===== */
+var cur=null, curP=0, timers=[];
+function notFound(){play("err");$("err").textContent="لم تجد المرآة هذا الاسم. اكتبي اسمكِ الكامل كما سجّلته معلمتكِ.";var b=$("searchBox");b.classList.remove("shake");void b.offsetWidth;b.classList.add("shake")}
+function search(){
+  ac();if(busy)return;
+  var L=doc.classes.filter(function(c){return c.recs.length}),cid=$("clsSel").value||(L.length===1?L[0].id:"");
+  if(!cid){play("err");$("err").textContent=L.length?"اختاري معلمتكِ أولًا.":"لم تُضَف النتائج بعد.";return}
+  var q=$("nameIn").value;if(!norm(q)){notFound();return}
+  var cl=L.filter(function(c){return c.id===cid})[0];busy=true;$("err").textContent="";
+  sKeys(cid,q).then(function(d){var r=cl.recs.filter(function(x){return x.k===d.k})[0];return r?dec(d.key,r):null})
+  .then(function(rec){busy=false;if(!rec){notFound();return}cur=rec;play("found");showResult()})
+  .catch(function(){busy=false;notFound()})
+}
+function showResult(){
+  var s=cur,max=Number(cur.exam.max)||1;curP=Math.max(0,Math.min(100,Math.round(s.score/max*100)));
+  var t=tierOf(curP),first=s.name.split(" ")[0];
+  $("searchBox").hidden=true;$("result").hidden=false;
+  $("mistHello").textContent="مرحبًا يا "+first+" 💫";
+  $("hello").textContent="أهلًا بكِ يا "+first;
+  $("examName").textContent=cur.exam.name;
+  $("scoreTxt").textContent=num(s.score)+" من "+num(max);
+  $("tier").textContent=t.ico+" "+t.title;
+  $("msg").textContent=t.msg;
+  $("strength").textContent=s.strength&&s.strength.trim()?s.strength:t.s;
+  $("tip").textContent=s.tip&&s.tip.trim()?s.tip:t.t;
+  $("mist").classList.remove("gone");
+  ["r1","r2","r3","r4","r5"].forEach(function(i){$(i).classList.remove("on")});
+  $("arc").style.transition="none";$("arc").setAttribute("stroke-dashoffset","452.4");$("pct").textContent="0%";
+  touched=false;fogInit();window.scrollTo(0,0)
+}
+function touch(){
+  if(touched)return;touched=true;play("magic");burst();timers.push(setTimeout(function(){play("fill")},900));timers.push(setTimeout(function(){play("cheer",curP)},2900));
+  $("mist").classList.add("gone");
+  var steps=["r1","r2","r3","r4","r5"];
+  steps.forEach(function(id,i){timers.push(setTimeout(function(){$(id).classList.add("on")},500+i*650))});
+  timers.push(setTimeout(function(){
+    var arc=$("arc");arc.style.transition="stroke-dashoffset 2s ease-out";arc.setAttribute("stroke-dashoffset",String(452.4*(1-curP/100)));
+    var st=performance.now();(function tick(n){var k=Math.min(1,(n-st)/2000);$("pct").textContent=Math.round(curP*(1-Math.pow(1-k,3)))+"%";if(k<1)requestAnimationFrame(tick)})(st);
+    confetti(curP)},900))
+}
+function gentle(){var ch=["🦋","✨","💜","🌸","🕊️"];
+  for(var i=0;i<14;i++){var e=document.createElement("span");e.className="fx up";e.textContent=ch[i%ch.length];
+   e.style.left=(Math.random()*92)+"vw";e.style.fontSize=(18+Math.random()*14)+"px";e.style.animationDuration=(7+Math.random()*4)+"s";e.style.animationDelay=(Math.random()*3)+"s";
+   document.body.appendChild(e);(function(x){setTimeout(function(){x.remove()},12000)})(e)}}
+function confetti(p){if(p<50){gentle();return}
+  var ch=p>=50?["✨","🌸","💜","⭐","🎀","🦋"]:["✨","💜","🌸","🦋"],n=p>=80?44:p>=50?30:20;
+  for(var i=0;i<n;i++){var e=document.createElement("span");e.className="fx";e.textContent=ch[i%ch.length];
+   e.style.left=Math.random()*98+"vw";e.style.fontSize=(16+Math.random()*18)+"px";e.style.animationDuration=(2.5+Math.random()*2.5)+"s";e.style.animationDelay=(Math.random()*.8)+"s";
+   document.body.appendChild(e);(function(x){setTimeout(function(){x.remove()},6500)})(e)}}
+function hideResult(){timers.forEach(clearTimeout);timers=[];cur=null;$("modal").hidden=true;$("result").hidden=true;$("searchBox").hidden=false;$("nameIn").value="";$("nameIn").focus()}
+
+/* ===== بطاقة الإنجاز ===== */
+function wrap(ctx,text,maxW){var w=text.split(" "),lines=[],l="";w.forEach(function(x){var t=l?l+" "+x:x;if(ctx.measureText(t).width>maxW&&l){lines.push(l);l=x}else l=t});if(l)lines.push(l);return lines}
+function drawCard(fmt){
+  var s=cur,t=tierOf(curP),max=Number(cur.exam.max)||1,W=900,H=1200,c=document.createElement("canvas");c.width=W;c.height=H;var x=c.getContext("2d");
+  var bg=x.createLinearGradient(0,0,W,H);bg.addColorStop(0,"#f8f0e4");bg.addColorStop(.5,"#e9dffb");bg.addColorStop(1,"#f7bdd6");x.fillStyle=bg;x.fillRect(0,0,W,H);
+  var X=60,Y=60,w=780,h=1080,r=w/2;
+  x.beginPath();x.moveTo(X,Y+r);x.arc(X+r,Y+r,r,Math.PI,0);x.lineTo(X+w,Y+h-44);x.arcTo(X+w,Y+h,X+w-44,Y+h,44);x.lineTo(X+44,Y+h);x.arcTo(X,Y+h,X,Y+h-44,44);x.closePath();
+  x.fillStyle="#fff";x.fill();
+  var fg=x.createLinearGradient(0,0,W,H);fg.addColorStop(0,"#e6c98f");fg.addColorStop(.5,"#f7bdd6");fg.addColorStop(1,"#7c4dbd");x.lineWidth=16;x.strokeStyle=fg;x.stroke();
+  x.direction="rtl";x.textAlign="center";var F='"Segoe UI","Noto Naskh Arabic",Tahoma,Arial,sans-serif';
+  x.fillStyle="#7c4dbd";x.font="700 40px "+F;x.fillText("✨ مرآة الإنجاز ✨",W/2,300);
+  x.fillStyle="#41256f";x.font="800 70px "+F;x.fillText(s.name,W/2,420);
+  x.fillStyle="#7c4dbd";x.font="600 36px "+F;x.fillText(cur.exam.name,W/2,485);
+  var pg=x.createLinearGradient(300,560,600,740);pg.addColorStop(0,"#7c4dbd");pg.addColorStop(1,"#e58bb4");
+  x.fillStyle=pg;x.font="800 170px "+F;x.fillText(curP+"%",W/2,700);
+  x.fillStyle="#41256f";x.font="700 44px "+F;x.fillText("الدرجة: "+num(s.score)+" من "+num(max),W/2,780);
+  x.fillStyle="#e58bb4";x.font="800 52px "+F;x.fillText(t.ico+" "+t.title,W/2,865);
+  x.fillStyle="#3a2a55";x.font="500 33px "+F;var L=wrap(x,t.msg,600);L.slice(0,5).forEach(function(l,i){x.fillText(l,W/2,935+i*50)});
+  x.fillStyle="#7c4dbd";x.font="700 28px "+F;x.fillText("✦ بطاقة إنجاز خاصة بكِ ✦",W/2,1095);
+  return c.toDataURL(fmt||"image/png",.93)
+}
+function openCard(){play("card");var u=drawCard();$("cardImg").src=u;$("modal").hidden=false}
+function b64(u){var p=u.split(","),bin=atob(p[1]),n=bin.length,a=new Uint8Array(n);for(var i=0;i<n;i++)a[i]=bin.charCodeAt(i);return a}
+function saveFile(name,data,ok){
+  var fail="تعذّر الحفظ، اضغطي مطولًا على صورة البطاقة لحفظها";
+  if(!(window.claude&&claude.use)){toast(fail);return}
+  claude.use("downloads").then(function(d){
+    if(!d){toast(fail);return}
+    return d.save({filename:name,data:data}).then(function(){toast(ok||"تم الحفظ ✓")},function(e){if(!e||e.code!=="declined")toast(fail)})
+  }).catch(function(){toast(fail)})
+}
+function dl(){saveFile("achievement-card.png",b64($("cardImg").src),"تم حفظ الصورة ✓")}
+function makePdf(jpg){
+  var enc=new TextEncoder(),parts=[],off=[],len=0;
+  function add(x){var u=typeof x==="string"?enc.encode(x):x;parts.push(u);len+=u.length}
+  function obj(n,body){off[n]=len;add(n+" 0 obj\n"+body+"\nendobj\n")}
+  add("%PDF-1.4\n");
+  obj(1,"<< /Type /Catalog /Pages 2 0 R >>");
+  obj(2,"<< /Type /Pages /Kids [3 0 R] /Count 1 >>");
+  obj(3,"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>");
+  off[4]=len;add("4 0 obj\n<< /Type /XObject /Subtype /Image /Width 900 /Height 1200 /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length "+jpg.length+" >>\nstream\n");add(jpg);add("\nendstream\nendobj\n");
+  var cs="q 520 0 0 693 37 75 cm /Im0 Do Q";
+  obj(5,"<< /Length "+cs.length+" >>\nstream\n"+cs+"\nendstream");
+  var x=len;add("xref\n0 6\n0000000000 65535 f \n");
+  for(var i=1;i<=5;i++)add(("0000000000"+off[i]).slice(-10)+" 00000 n \n");
+  add("trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n"+x+"\n%%EOF");
+  var out=new Uint8Array(len),p=0;parts.forEach(function(u){out.set(u,p);p+=u.length});return out
+}
+function printPdf(){if(!cur)return;saveFile("achievement-card.pdf",makePdf(b64(drawCard("image/jpeg"))),"تم حفظ ملف PDF ✓ افتحيه واطبعيه من جهازكِ")}
+
+/* ===== المعلمة ===== */
+var editId=null;
+function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+function classUI(){
+  var L=space?space.classes:[],sel=$("tSel");
+  if(!tId||!L.some(function(c){return c.id===tId}))tId=L.length?L[0].id:null;
+  sel.innerHTML=L.map(function(c){return '<option value="'+c.id+'">'+esc(c.teacher)+'</option>'}).join("");
+  if(tId)sel.value=tId;
+  data=tId?L.filter(function(c){return c.id===tId})[0]:null;
+  $("classPanels").hidden=!data;$("clsPick").hidden=!data;$("clsEmpty").hidden=!!data;$("clsName").value=data?data.teacher:""
+}
+function initCls(){var L=doc.classes.filter(function(c){return c.recs.length}),s=$("clsSel");
+  s.innerHTML='<option value="">اختاري معلمتكِ…</option>'+L.map(function(c){return '<option value="'+c.id+'">'+esc(c.label)+'</option>'}).join("");
+  s.hidden=L.length<2;if(L.length===1)s.value=L[0].id}
+function renderT(){classUI();if(data)renderCls()}
+function unlock(pw,create){
+  var err=$("tErr");
+  if(pw.length<6){err.textContent="اكتبي رمزًا من 6 أحرف على الأقل";return}
+  err.textContent="جارٍ الفتح…";
+  tKeys(pw).then(function(k){
+    var ent=doc.spaces.filter(function(x){return x.tid===k.tid})[0];
+    if(ent&&create){err.textContent="هذا الرمز مستخدم، اختاري رمزًا آخر.";return null}
+    if(ent)return dec(k.key,ent).then(function(sp){return {k:k,sp:sp}});
+    if(!create){err.textContent="لا توجد مساحة بهذا الرمز. تأكدي منه أو أنشئي مساحة جديدة.";return null}
+    return {k:k,sp:{classes:[]}}
+  }).then(function(r){if(!r)return;tk=r.k;space=r.sp;ownIds=space.classes.map(function(c){return c.id});
+    try{sessionStorage.setItem("mirror_pw",pw)}catch(e){}
+    err.textContent="";$("tPw").value="";$("tLock").hidden=true;$("tMain").hidden=false;renderT()
+  }).catch(function(){err.textContent="تعذّر فتح المساحة. تأكدي من الرمز."})
+}
+function lockT(){try{sessionStorage.removeItem("mirror_pw")}catch(e){}tk=null;space=null;data=null;$("tMain").hidden=true;$("tLock").hidden=false;$("tErr").textContent=""}
+function renderCls(){
+  $("exName").value=data.exam.name;$("exMax").value=data.exam.max;$("cnt").textContent=data.students.length;
+  var L=$("list");
+  if(!data.students.length){L.innerHTML='<div class="empty">لا توجد طالبات بعد. أضيفي أول طالبة من النموذج أعلاه 🌸</div>';return}
+  L.innerHTML=data.students.map(function(s){return '<div class="item"><span class="n">'+esc(s.name)+'</span><span class="s">'+num(s.score)+' / '+num(data.exam.max)+'</span><button class="soft" data-e="'+s.id+'">تعديل</button><button class="danger" data-d="'+s.id+'">حذف</button></div>'}).join("")
+}
+function resetForm(){editId=null;$("stName").value="";$("stScore").value="";$("stStrength").value="";$("stTip").value="";$("saveSt").textContent="إضافة";$("formTitle").textContent="➕ إضافة طالبة";$("cancelEdit").hidden=true}
+function saveExam(){
+  var n=$("exName").value.trim(),m=parseFloat($("exMax").value);
+  if(!n||!(m>0)){toast("اكتبي اسم الاختبار ودرجة نهائية أكبر من صفر");return}
+  var over=data.students.filter(function(s){return s.score>m});
+  if(over.length){toast("هناك درجات أعلى من الدرجة النهائية الجديدة، عدّليها أولًا");return}
+  data.exam={name:n,max:m};save();renderT();toast("تم حفظ بيانات الاختبار ✓")
+}
+function saveStudent(){
+  var n=$("stName").value.trim().replace(/\s+/g," "),sc=parseFloat($("stScore").value),max=Number(data.exam.max);
+  if(!n){toast("اكتبي اسم الطالبة");return}
+  if(isNaN(sc)||sc<0||sc>max){toast("الدرجة يجب أن تكون بين 0 و "+num(max));return}
+  var dup=data.students.some(function(s){return norm(s.name)===norm(n)&&s.id!==editId});
+  if(dup){toast("هذا الاسم موجود مسبقًا، أضيفي ما يميّزه (مثل اسم الأب)");return}
+  var rec={name:n,score:sc,strength:$("stStrength").value.trim(),tip:$("stTip").value.trim()};
+  if(editId!==null){var s=data.students.filter(function(z){return z.id===editId})[0];if(s)Object.assign(s,rec);toast("تم تحديث بيانات الطالبة ✓")}
+  else{var id=data.students.reduce(function(a,z){return Math.max(a,z.id)},0)+1;rec.id=id;data.students.push(rec);toast("تمت إضافة الطالبة ✓")}
+  save();resetForm();renderT()
+}
+function showT(on){$("teacherView").hidden=!on;$("studentView").hidden=on;$("toTeacher").hidden=on||!canEdit;if(on){renderT()}else{hideResult()}window.scrollTo(0,0)}
+
+/* الأحداث */
+$("goBtn").onclick=search;
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("button");if(!b)return;ac();if(!{goBtn:1,touchBtn:1,cardBtn:1,sndBtn:1}[b.id])play("pop")});
+$("sndBtn").textContent=soundOn?"🔊":"🔇";
+$("sndBtn").onclick=function(){soundOn=!soundOn;try{localStorage.setItem("mirror_snd",soundOn?"1":"0")}catch(e){}$("sndBtn").textContent=soundOn?"🔊":"🔇";if(soundOn){ac();play("pop")}};
+$("nameIn").addEventListener("keydown",function(e){if(e.key==="Enter")search()});
+$("touchBtn").onclick=touch;$("againBtn").onclick=hideResult;$("cardBtn").onclick=openCard;
+$("dlBtn").onclick=dl;$("prBtn").onclick=printPdf;$("closeBtn").onclick=function(){$("modal").hidden=true};
+$("modal").addEventListener("click",function(e){if(e.target===$("modal"))$("modal").hidden=true});
+$("toTeacher").onclick=function(){showT(true)};$("toStudent").onclick=function(){showT(false)};
+$("saveExam").onclick=saveExam;$("saveSt").onclick=saveStudent;$("cancelEdit").onclick=resetForm;
+$("list").addEventListener("click",function(e){
+  var ed=e.target.getAttribute("data-e"),de=e.target.getAttribute("data-d");
+  if(ed){var s=data.students.filter(function(z){return z.id===+ed})[0];if(!s)return;editId=s.id;$("stName").value=s.name;$("stScore").value=s.score;$("stStrength").value=s.strength||"";$("stTip").value=s.tip||"";$("saveSt").textContent="حفظ التعديل";$("formTitle").textContent="✏️ تعديل بيانات الطالبة";$("cancelEdit").hidden=false;$("stName").scrollIntoView({behavior:"smooth",block:"center"})}
+  if(de){var t=data.students.filter(function(z){return z.id===+de})[0];if(t)ask("حذف "+t.name+"؟",function(){data.students=data.students.filter(function(z){return z.id!==+de});if(editId===+de)resetForm();save();renderT();toast("تم الحذف")})}
+});
+$("resetDemo").onclick=function(){ask("سيتم استبدال كل البيانات الحالية بالبيانات التجريبية. متابعة؟",function(){data.exam=clone(SEED.exam);data.students=clone(SEED.students);save();resetForm();renderT();toast("تمت استعادة البيانات التجريبية")})};
+$("clearAll").onclick=function(){ask("حذف جميع الطالبات؟ لا يمكن التراجع.",function(){data.students=[];save();resetForm();renderT();toast("تم حذف الطالبات")})};
+$("tSel").onchange=function(){tId=this.value;resetForm();renderT()};
+$("clsSave").onclick=function(){var n=$("clsName").value.trim();if(!data||!n){toast("اكتبي اسم الصف");return}data.teacher=n;save()};
+$("clsNew").onclick=function(){if(!space)return;var n=$("clsNewName").value.trim()||"صف جديد",c={id:"c"+Date.now(),teacher:n,exam:{name:"الاختبار",max:20},students:[]};space.classes.push(c);tId=c.id;save()};
+$("clsDel").onclick=function(){if(!data)return;var id=data.id;ask("حذف الصف «"+data.teacher+"» بكل طالباته؟ لا يمكن التراجع.",function(){space.classes=space.classes.filter(function(c){return c.id!==id});tId=null;save()})};
+$("tOpen").onclick=function(){unlock($("tPw").value,false)};
+$("tCreate").onclick=function(){unlock($("tPw").value,true)};
+$("tPw").addEventListener("keydown",function(e){if(e.key==="Enter")unlock($("tPw").value,false)});
+$("tLock2").onclick=function(){lockT();toast("تم قفل المساحة")};
+$("tChange").onclick=function(){var p=$("tNewPw").value;if(!tk||p.length<6){toast("اكتبي رمزًا جديدًا من 6 أحرف على الأقل");return}
+  tKeys(p).then(function(k){if(doc.spaces.some(function(x){return x.tid===k.tid&&x.tid!==tk.tid})){toast("هذا الرمز مستخدم، اختاري غيره");return}
+    k.oldTid=tk.tid;tk=k;try{sessionStorage.setItem("mirror_pw",p)}catch(e){}save()})};
+initCls();renderT();
+if(window.claude&&claude.use){Promise.all([claude.use("artifact"),claude.use("user")]).then(function(r){
+  pub=r[0];var u=r[1];canEdit=!!(pub&&u&&u.canEdit());
+  if(canEdit){$("toTeacher").hidden=false;
+    if(location.hash.indexOf("#teacher")===0){var m=/^#teacher-(c\d+)$/.exec(location.hash);if(m)tId=m[1];showT(true);
+      var sp=null;try{sp=sessionStorage.getItem("mirror_pw")}catch(e){}if(sp)unlock(sp,false)}}
+}).catch(function(){})}
+})();
+</script>
+</body>
+</html>
